@@ -1,12 +1,10 @@
 package src.MarinAndVictorMP;
 
-import netscape.javascript.JSObject;
 import java.net.*;
 import java.io.*;
 
 public class API {
 
-    JSObject json;
 
     public static void main(String[] args) throws IOException {
         URL url = new URL("http://dnd5eapi.co/api/");
@@ -23,6 +21,8 @@ public class API {
 
         }
         br.close();
+
+
 
     }
 }
