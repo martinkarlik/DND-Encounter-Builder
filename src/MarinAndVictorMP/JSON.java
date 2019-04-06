@@ -8,7 +8,7 @@ import java.util.Scanner;
 //from  w  ww  .  java  2  s  . c o m
 public class JSON {
     public static void main(String[] args) {
-        String data = jsonGetRequest("http://dnd5eapi.co/api/Monsters/22");
+        String data = jsonGetRequest("http://dnd5eapi.co/api/Monsters/22/");
         System.out.println(data);
     }
 

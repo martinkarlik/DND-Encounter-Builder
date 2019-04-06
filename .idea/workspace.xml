@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" line="70" mnemonic="8" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="802a5364-beb7-48ad-b237-cf17add10083" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VictorBuch/DMMiniproject&#10;&#10;# Conflicts:&#10;#&#9;src/API.java">
-      <change afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/API.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="2">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -45,7 +42,7 @@
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -56,16 +53,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+            <state relative-caret-position="120">
+              <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2793#2837#1" />
-                <element signature="e#2636#2770#1" />
-                <element signature="e#3027#3161#1" />
-                <element signature="e#3224#3358#1" />
-                <element signature="e#3421#3555#1" />
-                <element signature="e#3618#3752#1" />
+                <element signature="e#2878#3011#1" />
+                <element signature="e#3060#3194#1" />
+                <element signature="e#3246#3383#1" />
+                <element signature="e#3435#3572#1" />
+                <element signature="e#3618#3749#1" />
+                <element signature="e#3797#3930#1" />
+                <element signature="method#GetBonus#0;class#Monsters#0" />
               </folding>
             </state>
           </provider>
@@ -74,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+            <state relative-caret-position="67">
+              <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -97,9 +94,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/MartinAndVictorMP/Test.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/Test.java" />
-        <option value="$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/API.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" />
+        <option value="$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" />
       </list>
     </option>
@@ -114,6 +111,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,16 +131,10 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="MarinAndVictorMP" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="TheOne" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -164,9 +157,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.JSONAPITEST">
+  <component name="RunManager" selected="Application.JSON">
     <configuration name="API" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="src.MarinAndVictorMP.API" />
+      <module name="TheOne" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="src.MarinAndVictorMP.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JSON" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="src.MarinAndVictorMP.JSON" />
       <module name="TheOne" />
       <extension name="coverage">
         <pattern>
@@ -193,6 +199,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.JSON" />
         <item itemvalue="Application.JSONAPITEST" />
         <item itemvalue="Application.API" />
       </list>
@@ -215,25 +222,25 @@
     <frame x="0" y="23" width="1280" height="738" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2358643" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24313408" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection Results" sideWeight="0.49919224" weight="0.32972136" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49676898" visible="true" weight="0.32817337" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49596122" weight="0.32817337" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919224" weight="0.3993808" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49919224" weight="0.17956656" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.503231" side_tool="true" visible="true" weight="0.32817337" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50403875" side_tool="true" visible="true" weight="0.32817337" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49596122" weight="0.2647059" />
+      <window_info anchor="bottom" id="Inspection Results" order="11" sideWeight="0.49919224" weight="0.32972136" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -255,16 +262,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/API.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="2">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -272,10 +272,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -284,16 +291,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        <state relative-caret-position="120">
+          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2793#2837#1" />
-            <element signature="e#2636#2770#1" />
-            <element signature="e#3027#3161#1" />
-            <element signature="e#3224#3358#1" />
-            <element signature="e#3421#3555#1" />
-            <element signature="e#3618#3752#1" />
+            <element signature="e#2878#3011#1" />
+            <element signature="e#3060#3194#1" />
+            <element signature="e#3246#3383#1" />
+            <element signature="e#3435#3572#1" />
+            <element signature="e#3618#3749#1" />
+            <element signature="e#3797#3930#1" />
+            <element signature="method#GetBonus#0;class#Monsters#0" />
           </folding>
         </state>
       </provider>

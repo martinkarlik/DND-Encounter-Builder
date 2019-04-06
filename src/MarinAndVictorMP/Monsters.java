@@ -14,13 +14,13 @@ import java.util.ArrayList;
 public class Monsters {
     ArrayList<String> savingThrows = new ArrayList<>();
 
-    String name, size, type, subtype, alignment, speed, damage_vulnerabilities,damage_resistances,
+    protected String name, size, type, subtype, alignment, speed, damage_vulnerabilities,damage_resistances,
             damage_immunities, senses, languages;
 
-    int AC, HP, strength, dexterity, constitution, intelligence, wisdom, charisma,
+    protected int AC, HP, strength, dexterity, constitution, intelligence, wisdom, charisma,
             str_save, dex_save, con_save, int_save, wis_save, cha_save, stealth, challenge_rating;
 
-    public Monsters(String id) throws MalformedURLException, IOException, JSONException {
+    public Monsters(String id) throws IOException, JSONException {
         URL url = new URL(id);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
