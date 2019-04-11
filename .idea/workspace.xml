@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="802a5364-beb7-48ad-b237-cf17add10083" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VictorBuch/DMMiniproject&#10;&#10;# Conflicts:&#10;#&#9;src/API.java">
-      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" afterDir="false" />
-    </list>
+    <list default="true" id="802a5364-beb7-48ad-b237-cf17add10083" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VictorBuch/DMMiniproject&#10;&#10;# Conflicts:&#10;#&#9;src/API.java" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +235,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4951535" visible="true" weight="0.32817337" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4951535" weight="0.32817337" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919224" weight="0.3993808" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
