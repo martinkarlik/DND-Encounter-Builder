@@ -17,7 +17,7 @@ public class Monsters {
             damage_immunities, senses, languages, hit_dice;
 
     protected int AC, HP, strength, dexterity, constitution, intelligence, wisdom, charisma,
-            str_save, dex_save, con_save, int_save, wis_save, cha_save, stealth;
+            str_save, dex_save, con_save, int_save, wis_save, cha_save, stealth, xp;
 
     protected double challenge_rating;
 
