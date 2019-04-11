@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
@@ -92,11 +91,10 @@ public class Monsters {
             if(jsonObject.has("alignment")){
                 alignment = jsonObject.getString("alignment");
             }
-
-            // Special attributes
             if(jsonObject.has("stealth")){
                 stealth = jsonObject.getInt("stealth");
             }
+
 
             // Saving throws
             if(jsonObject.has("strength_save")){
@@ -128,6 +126,7 @@ public class Monsters {
         }
     }
 
+    // Gets the attribute stats of the monster
     public void GetStats(){
         System.out.println("Strength: " + strength + " " + GetBonus(strength));
         System.out.println("Dexterity: " + dexterity + " " + GetBonus(dexterity));

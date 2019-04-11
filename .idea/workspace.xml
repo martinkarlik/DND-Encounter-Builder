@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="802a5364-beb7-48ad-b237-cf17add10083" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VictorBuch/DMMiniproject&#10;&#10;# Conflicts:&#10;#&#9;src/API.java">
-      <change afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/API.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/Test.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+            <state relative-caret-position="275">
+              <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,12 +27,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-253">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="1260">
+              <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#2119#2192#1" />
                 <element signature="e#2235#2310#1" />
                 <element signature="e#2354#2435#1" />
@@ -51,6 +47,7 @@
                 <element signature="e#3381#3475#1" />
                 <element signature="e#3527#3601#1" />
                 <element signature="e#3643#3721#1" />
+                <element signature="e#3760#3831#1" />
                 <element signature="e#2875#3008#1" />
                 <element signature="e#3057#3191#1" />
                 <element signature="e#3243#3380#1" />
@@ -58,6 +55,7 @@
                 <element signature="e#3615#3746#1" />
                 <element signature="e#3794#3927#1" />
                 <element signature="e#5024#5113#0" />
+                <element signature="method#GetBonus#0;class#Monsters#0" />
                 <element signature="e#4030#5300#0" />
                 <element signature="e#5502#5606#0" />
                 <element signature="e#5576#5604#0" />
@@ -104,8 +102,8 @@
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/API.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java" />
-        <option value="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" />
+        <option value="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" />
       </list>
     </option>
   </component>
@@ -294,11 +292,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-253">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="1260">
+          <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#2119#2192#1" />
             <element signature="e#2235#2310#1" />
             <element signature="e#2354#2435#1" />
@@ -312,6 +321,7 @@
             <element signature="e#3381#3475#1" />
             <element signature="e#3527#3601#1" />
             <element signature="e#3643#3721#1" />
+            <element signature="e#3760#3831#1" />
             <element signature="e#2875#3008#1" />
             <element signature="e#3057#3191#1" />
             <element signature="e#3243#3380#1" />
@@ -319,19 +329,10 @@
             <element signature="e#3615#3746#1" />
             <element signature="e#3794#3927#1" />
             <element signature="e#5024#5113#0" />
+            <element signature="method#GetBonus#0;class#Monsters#0" />
             <element signature="e#4030#5300#0" />
             <element signature="e#5502#5606#0" />
             <element signature="e#5576#5604#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
