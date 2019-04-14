@@ -1,26 +1,53 @@
 package src.MartinAndVictorMP;
 
+import java.util.Random;
+
 public class EncounterBuilder {
     // Maybe we should use an ArrayList for the players instead of the Int?
-    private int numberOfMonsters;
-    private int numberOfPlayers;
-    private String difficulty;
+    private static int numberOfMonsters;
+    private static int numberOfPlayers;
+    private static int levelOfPlayers;
+    private static int minMonsters;
+    private static int maxMonsters;
+    private static String difficulty;
     private static int partyXpThreshold;
 
-    public int getNumberOfMonsters() {
+    public static int getLevelOfPlayers() {
+        return levelOfPlayers;
+    }
+
+    public static void setLevelOfPlayers(int levelOfPlayers) {
+        EncounterBuilder.levelOfPlayers = levelOfPlayers;
+    }
+
+    public static void setMinMonsters(int minMonsters) {
+        EncounterBuilder.minMonsters = minMonsters;
+    }
+
+    public static void setMaxMonsters(int maxMonsters) {
+        EncounterBuilder.maxMonsters = maxMonsters;
+    }
+
+    public static int getNumberOfMonsters(){
+        Random rand = new Random();
+        numberOfMonsters = rand.nextInt((maxMonsters - minMonsters) + 1);
         return numberOfMonsters;
     }
 
-    public void setNumberOfMonsters(int numberOfMonsters) {
-        this.numberOfMonsters = numberOfMonsters;
+    public static int getNumberOfPlayers() {
+        return numberOfPlayers;
     }
 
-    public String getDifficulty() {
+    public static void setNumberOfPlayers(int np) {
+        numberOfPlayers = np;
+    }
+
+    public static String getDifficulty() {
         return difficulty;
     }
 
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
+    public static void setDifficulty(String dc) {
+        difficulty = dc;
     }
 
 
@@ -407,8 +434,6 @@ public class EncounterBuilder {
         }
     }
 
-    // TODO min max monsters
-    // TODO monster type
-    // TODO button to build the encounter
+    // TODO function to build the encounter
 
 }

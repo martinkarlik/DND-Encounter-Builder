@@ -1,4 +1,4 @@
-package src.MarinAndVictorMP;
+package src.MartinAndVictorMP;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package src.MarinAndVictorMP;
+package src.MartinAndVictorMP;
 
 import org.json.JSONException;
 import java.io.IOException;

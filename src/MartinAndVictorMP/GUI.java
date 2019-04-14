@@ -1,4 +1,4 @@
-package src.MarinAndVictorMP;
+package src.MartinAndVictorMP;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -84,6 +84,27 @@ public class GUI extends JFrame {
                                 .addComponent(maxMonstersT)
                                 .addComponent(monsterTypeT)
                                 .addComponent(buildEncounter)));
+
+        // This works but only if the enter button on the keyboard is being hit.
+        buildEncounter.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EncounterBuilder.setNumberOfPlayers(Integer.parseInt(numOfPlayersT.getText()));
+                EncounterBuilder.setLevelOfPlayers(Integer.parseInt(levelOfPlayersT.getText()));
+                EncounterBuilder.setMinMonsters(Integer.parseInt(minMonstersT.getText()));
+                EncounterBuilder.setMaxMonsters(Integer.parseInt(maxMonstersT.getText()));
+                EncounterBuilder.setDifficulty(difficultyT.getText().toLowerCase());
+
+
+
+                // For debugging
+                System.out.println("Number of players: " + EncounterBuilder.getNumberOfPlayers());
+                System.out.println("Level of players: " + EncounterBuilder.getLevelOfPlayers());
+                System.out.println("Random number of monsters: " + EncounterBuilder.getNumberOfMonsters());
+                System.out.println("Difficulty: " + EncounterBuilder.getDifficulty());
+
+            }
+        });
         pack();
         setVisible(true);
     }
