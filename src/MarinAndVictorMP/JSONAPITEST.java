@@ -5,11 +5,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-
 public class JSONAPITEST {
-
-
-  public static void main(String[] args) throws MalformedURLException, IOException, JSONException {
+    public static void main(String[] args) throws MalformedURLException, IOException, JSONException {
       URL monstersURL = new URL("http://dnd5eapi.co/api/Monsters/");
       EnounterBuilder enounterBuilder = new EnounterBuilder();
       Monsters.GetMonster(monstersURL + "37/");
@@ -27,6 +24,6 @@ public class JSONAPITEST {
   }
 
   public static void BuildTheMonster(){
-
+        // Maybe not necessary but it might be needed to just do all of the different functions in one call
   }
 }

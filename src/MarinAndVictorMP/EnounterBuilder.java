@@ -10,6 +10,7 @@ public class EnounterBuilder {
     // TODO Find the amount of exp given by the encounter
 
 
+    // Gets the different multipliers that are required if there are more than one monster
     public static double EncounterMultiplier(int numberOfMonsters, int numberOfPlayers){
         double multiplier = 1;
         if (numberOfPlayers < 6 && numberOfPlayers > 2){
@@ -88,11 +89,15 @@ public class EnounterBuilder {
         return multiplier;
     }
 
+    // The actual xp that the encounter gives, takes monster xp and amount of monsters and multiplier into account
+    // This is the number that should match closely up with the table for encounters. Page 82 in the DM's guide
     public static int GivenEncounterXp(int xp, double multiplier, int numberOfMonsters){
         int encounterXp = (int) ((xp * multiplier) * numberOfMonsters);
         return encounterXp;
     }
 
+    // Gets the party xp threshold by getting the number of players and taking into account the difficulty
+    // This is the number that the monsters xp should be as close to as possible.
     public static int PartyXpThreshold(int numberOfPlayers, int levelOfPlayers, String difficulty){
         int partyXpThreshold = 0;
         switch (difficulty){

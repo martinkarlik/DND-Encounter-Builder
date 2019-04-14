@@ -21,7 +21,7 @@ public class Monsters {
 
     protected static double challenge_rating;
 
-   /* public Monsters(String id) throws IOException, JSONException {
+    /* public Monsters(String id) throws IOException, JSONException {
         URL url = new URL(id);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
@@ -126,6 +126,8 @@ public class Monsters {
         }
     }*/
 
+    // Used instead of the constructor so we don't have to generate objects
+    // Gets the monster info from the API and assigns all the variables from the JSON file
     public static void GetMonster(String monsterID) throws IOException, JSONException{
         URL url = new URL(monsterID);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -393,5 +395,5 @@ public class Monsters {
                 break;
         }
         return xp;
-    }
+   }
 }
