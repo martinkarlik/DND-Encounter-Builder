@@ -11,18 +11,123 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class Monsters {
-    ArrayList<String> savingThrows = new ArrayList<>();
+    protected static ArrayList<String> savingThrows = new ArrayList<>();
 
-    protected String name, size, type, subtype, alignment, speed, damage_vulnerabilities,damage_resistances,
+    protected static String name, size, type, subtype, alignment, speed, damage_vulnerabilities,damage_resistances,
             damage_immunities, senses, languages, hit_dice;
 
-    protected int AC, HP, strength, dexterity, constitution, intelligence, wisdom, charisma,
+    protected static int AC, HP, strength, dexterity, constitution, intelligence, wisdom, charisma,
             str_save, dex_save, con_save, int_save, wis_save, cha_save, stealth, xp;
 
-    protected double challenge_rating;
+    protected static double challenge_rating;
 
-    public Monsters(String id) throws IOException, JSONException {
+   /* public Monsters(String id) throws IOException, JSONException {
         URL url = new URL(id);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+        String inputLine;
+        StringBuffer response = new StringBuffer();
+
+        connection.connect();
+        int responseCode = connection.getResponseCode();
+        if (responseCode != 200) {
+            throw new RuntimeException("HttpResponseCode: " + responseCode);
+        } else {
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            JSONObject jsonObject = new JSONObject(response.toString());
+
+            name = jsonObject.getString("name");
+            size = jsonObject.getString("size");
+            type = jsonObject.getString("type");
+            AC = jsonObject.getInt("armor_class");
+            HP = jsonObject.getInt("hit_points");
+            hit_dice = jsonObject.getString("hit_dice");
+            speed = jsonObject.getString("speed");
+            challenge_rating = jsonObject.getDouble("challenge_rating");
+
+            // Uncommon attributes
+            if(jsonObject.has("strength")){
+                strength = jsonObject.getInt("strength");
+            }
+            if(jsonObject.has("dexterity")){
+                dexterity = jsonObject.getInt("dexterity");
+            }
+            if(jsonObject.has("constitution")){
+                constitution = jsonObject.getInt("constitution");
+            }
+            if(jsonObject.has("intelligence")){
+                intelligence = jsonObject.getInt("intelligence");
+            }
+            if(jsonObject.has("wisdom")){
+                wisdom = jsonObject.getInt("wisdom");
+            }
+            if(jsonObject.has("charisma")){
+                charisma = jsonObject.getInt("charisma");
+            }
+            if(jsonObject.has("languages")){
+                languages = jsonObject.getString("languages");
+            }
+            if(jsonObject.has("senses")){
+                senses = jsonObject.getString("senses");
+            }
+            if(jsonObject.has("damage_vulnerabilities")){
+                damage_vulnerabilities = jsonObject.getString("damage_vulnerabilities");
+            }
+            if(jsonObject.has("damage_resistances")){
+                damage_resistances = jsonObject.getString("damage_resistances");
+            }
+            if(jsonObject.has("damage_immunities")){
+                damage_immunities = jsonObject.getString("damage_immunities");
+            }
+            if(jsonObject.has("subtype")){
+                subtype = jsonObject.getString("subtype");
+            }
+            if(jsonObject.has("alignment")){
+                alignment = jsonObject.getString("alignment");
+            }
+            if(jsonObject.has("stealth")){
+                stealth = jsonObject.getInt("stealth");
+            }
+
+
+            // Saving throws
+            if(jsonObject.has("strength_save")){
+                str_save = jsonObject.getInt("strength_save");
+                savingThrows.add("STR + " + str_save);
+            }
+            if(jsonObject.has("dexterity_save")){
+                dex_save = jsonObject.getInt("dexterity_save");
+                savingThrows.add("DEX + " + dex_save);
+            }
+            if(jsonObject.has("constitution_save")){
+                con_save = jsonObject.getInt("constitution_save");
+                savingThrows.add("CON + " + con_save);
+            }
+            if(jsonObject.has("intelligence_save")){
+                int_save = jsonObject.getInt("intelligence_save");
+                savingThrows.add("INT + " + int_save);
+            }
+            if(jsonObject.has("wisdom_save")){
+                wis_save = jsonObject.getInt("wisdom_save");
+                savingThrows.add("WIS + " + wis_save);
+            }
+            if(jsonObject.has("charisma_save")){
+                cha_save = jsonObject.getInt("charisma_save");
+                savingThrows.add("CHA + " + cha_save);
+            }
+
+
+        }
+    }*/
+
+    public static void GetMonster(String monsterID) throws IOException, JSONException{
+        URL url = new URL(monsterID);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
 
@@ -126,18 +231,8 @@ public class Monsters {
         }
     }
 
-    // Gets the attribute stats of the monster
-    public void GetStats(){
-        System.out.println("Strength: " + strength + " " + GetBonus(strength));
-        System.out.println("Dexterity: " + dexterity + " " + GetBonus(dexterity));
-        System.out.println("Constitution: " + constitution + " " + GetBonus(constitution));
-        System.out.println("Intelligence: " + intelligence + " " + GetBonus(intelligence));
-        System.out.println("Wisdom: " + wisdom + " " + GetBonus(wisdom));
-        System.out.println("Charisma: " + charisma + " " + GetBonus(charisma));
-    }
-
     // Calculates the number bonus from the stats
-    public int GetBonus(int number){
+    public static int GetBonus(int number){
         int bonus = 0;
         switch (number){
             case 1:
@@ -192,8 +287,18 @@ public class Monsters {
         return bonus;
     }
 
+    // Gets the attribute stats of the monster
+    public static void GetStats(){
+        System.out.println("Strength: " + strength + " " + GetBonus(strength));
+        System.out.println("Dexterity: " + dexterity + " " + GetBonus(dexterity));
+        System.out.println("Constitution: " + constitution + " " + GetBonus(constitution));
+        System.out.println("Intelligence: " + intelligence + " " + GetBonus(intelligence));
+        System.out.println("Wisdom: " + wisdom + " " + GetBonus(wisdom));
+        System.out.println("Charisma: " + charisma + " " + GetBonus(charisma));
+    }
+
     // Used to calculate the difficulty of the battle
-    public int CrToXp(double challenge_rating){
+    public static int CrToXp(double challenge_rating){
         int xp = 0;
         switch (Double.toString(challenge_rating)){
             case "0":

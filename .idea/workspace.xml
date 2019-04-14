@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="802a5364-beb7-48ad-b237-cf17add10083" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VictorBuch/DMMiniproject&#10;&#10;# Conflicts:&#10;#&#9;src/API.java" />
+    <list default="true" id="802a5364-beb7-48ad-b237-cf17add10083" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VictorBuch/DMMiniproject&#10;&#10;# Conflicts:&#10;#&#9;src/API.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="210">
+              <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -25,36 +30,60 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+            <state relative-caret-position="161">
+              <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2076#2149#1" />
-                <element signature="e#2193#2268#1" />
-                <element signature="e#2315#2396#1" />
-                <element signature="e#2443#2524#1" />
-                <element signature="e#2565#2634#1" />
-                <element signature="e#2677#2750#1" />
-                <element signature="e#2794#2872#1" />
-                <element signature="e#2913#2985#1" />
-                <element signature="e#3042#3146#1" />
-                <element signature="e#3199#3295#1" />
-                <element signature="e#3347#3441#1" />
-                <element signature="e#3483#3557#1" />
-                <element signature="e#3601#3679#1" />
-                <element signature="e#3721#3792#1" />
-                <element signature="e#3871#4004#1" />
-                <element signature="e#4053#4187#1" />
-                <element signature="e#4239#4376#1" />
-                <element signature="e#4428#4565#1" />
-                <element signature="e#4611#4742#1" />
-                <element signature="e#4790#4923#1" />
-                <element signature="e#4947#5524#0" />
-                <element signature="e#5530#6957#0" />
-                <element signature="e#6963#9427#0" />
+                <element signature="e#763#4970#0" />
+                <element signature="e#1414#1473#1" />
+                <element signature="e#2080#2153#1" />
+                <element signature="e#2197#2272#1" />
+                <element signature="e#2319#2400#1" />
+                <element signature="e#2447#2528#1" />
+                <element signature="e#2569#2638#1" />
+                <element signature="e#2681#2754#1" />
+                <element signature="e#2798#2876#1" />
+                <element signature="e#2917#2989#1" />
+                <element signature="e#3046#3150#1" />
+                <element signature="e#3203#3299#1" />
+                <element signature="e#3351#3445#1" />
+                <element signature="e#3487#3561#1" />
+                <element signature="e#3605#3683#1" />
+                <element signature="e#3725#3796#1" />
+                <element signature="e#3875#4008#1" />
+                <element signature="e#4057#4191#1" />
+                <element signature="e#4243#4380#1" />
+                <element signature="e#4432#4569#1" />
+                <element signature="e#4615#4746#1" />
+                <element signature="e#4794#4927#1" />
+                <element signature="e#5566#9746#0" />
+                <element signature="e#6215#6274#1" />
+                <element signature="e#6881#6954#1" />
+                <element signature="e#6998#7073#1" />
+                <element signature="e#7120#7201#1" />
+                <element signature="e#7248#7329#1" />
+                <element signature="e#7370#7439#1" />
+                <element signature="e#7482#7555#1" />
+                <element signature="e#7599#7677#1" />
+                <element signature="e#7718#7790#1" />
+                <element signature="e#7847#7951#1" />
+                <element signature="e#8004#8100#1" />
+                <element signature="e#8152#8246#1" />
+                <element signature="e#8288#8362#1" />
+                <element signature="e#8406#8484#1" />
+                <element signature="e#8526#8597#1" />
+                <element signature="e#8676#8809#1" />
+                <element signature="e#8858#8992#1" />
+                <element signature="e#9044#9181#1" />
+                <element signature="e#9233#9370#1" />
+                <element signature="e#9416#9547#1" />
+                <element signature="e#9595#9728#1" />
+                <element signature="e#5534#6961#0" />
+                <element signature="e#10662#11246#0" />
+                <element signature="e#7135#9406#0" />
               </folding>
             </state>
           </provider>
@@ -63,12 +92,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1299">
-              <caret line="312" column="9" lean-forward="true" selection-start-line="312" selection-start-column="9" selection-end-line="312" selection-end-column="9" />
+            <state relative-caret-position="235">
+              <caret line="92" column="27" lean-forward="true" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
               <folding>
-                <element signature="e#450#494#0" />
-                <element signature="e#6870#9598#0" />
-                <element signature="e#9687#12415#0" />
+                <element signature="method#EncounterMultiplier#0;class#EnounterBuilder#0" />
+                <element signature="e#495#1114#0" />
+                <element signature="e#1331#2038#0" />
+                <element signature="e#2116#2823#0" />
+                <element signature="method#PartyXpThreshold#0;class#EnounterBuilder#0" />
+                <element signature="e#1331#4047#0" />
+                <element signature="e#4138#6920#0" />
+                <element signature="e#6986#9714#0" />
+                <element signature="e#9805#12533#0" />
               </folding>
             </state>
           </provider>
@@ -78,7 +113,7 @@
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
+              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -102,9 +137,9 @@
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/Test.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/API.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java" />
+        <option value="$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" />
-        <option value="$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java" />
       </list>
     </option>
   </component>
@@ -118,6 +153,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -140,8 +177,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -227,8 +262,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="738" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2092084" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21567044" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -237,13 +273,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49434572" weight="0.32817337" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49353796" visible="true" weight="0.32817337" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49919224" weight="0.3993808" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49919224" weight="0.17956656" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5056543" side_tool="true" visible="true" weight="0.32817337" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50646204" side_tool="true" visible="true" weight="0.32817337" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4951535" weight="0.2647059" />
       <window_info anchor="bottom" id="Inspection Results" order="11" sideWeight="0.49919224" weight="0.32972136" />
@@ -266,61 +302,91 @@
     <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java">
+    <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="161">
+          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#763#4970#0" />
+            <element signature="e#1414#1473#1" />
+            <element signature="e#2080#2153#1" />
+            <element signature="e#2197#2272#1" />
+            <element signature="e#2319#2400#1" />
+            <element signature="e#2447#2528#1" />
+            <element signature="e#2569#2638#1" />
+            <element signature="e#2681#2754#1" />
+            <element signature="e#2798#2876#1" />
+            <element signature="e#2917#2989#1" />
+            <element signature="e#3046#3150#1" />
+            <element signature="e#3203#3299#1" />
+            <element signature="e#3351#3445#1" />
+            <element signature="e#3487#3561#1" />
+            <element signature="e#3605#3683#1" />
+            <element signature="e#3725#3796#1" />
+            <element signature="e#3875#4008#1" />
+            <element signature="e#4057#4191#1" />
+            <element signature="e#4243#4380#1" />
+            <element signature="e#4432#4569#1" />
+            <element signature="e#4615#4746#1" />
+            <element signature="e#4794#4927#1" />
+            <element signature="e#5566#9746#0" />
+            <element signature="e#6215#6274#1" />
+            <element signature="e#6881#6954#1" />
+            <element signature="e#6998#7073#1" />
+            <element signature="e#7120#7201#1" />
+            <element signature="e#7248#7329#1" />
+            <element signature="e#7370#7439#1" />
+            <element signature="e#7482#7555#1" />
+            <element signature="e#7599#7677#1" />
+            <element signature="e#7718#7790#1" />
+            <element signature="e#7847#7951#1" />
+            <element signature="e#8004#8100#1" />
+            <element signature="e#8152#8246#1" />
+            <element signature="e#8288#8362#1" />
+            <element signature="e#8406#8484#1" />
+            <element signature="e#8526#8597#1" />
+            <element signature="e#8676#8809#1" />
+            <element signature="e#8858#8992#1" />
+            <element signature="e#9044#9181#1" />
+            <element signature="e#9233#9370#1" />
+            <element signature="e#9416#9547#1" />
+            <element signature="e#9595#9728#1" />
+            <element signature="e#5534#6961#0" />
+            <element signature="e#10662#11246#0" />
+            <element signature="e#7135#9406#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1299">
-          <caret line="312" column="9" lean-forward="true" selection-start-line="312" selection-start-column="9" selection-end-line="312" selection-end-column="9" />
+        <state relative-caret-position="235">
+          <caret line="92" column="27" lean-forward="true" selection-start-line="92" selection-start-column="27" selection-end-line="92" selection-end-column="27" />
           <folding>
-            <element signature="e#450#494#0" />
-            <element signature="e#6870#9598#0" />
-            <element signature="e#9687#12415#0" />
+            <element signature="method#EncounterMultiplier#0;class#EnounterBuilder#0" />
+            <element signature="e#495#1114#0" />
+            <element signature="e#1331#2038#0" />
+            <element signature="e#2116#2823#0" />
+            <element signature="method#PartyXpThreshold#0;class#EnounterBuilder#0" />
+            <element signature="e#1331#4047#0" />
+            <element signature="e#4138#6920#0" />
+            <element signature="e#6986#9714#0" />
+            <element signature="e#9805#12533#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java">
+    <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+        <state relative-caret-position="210">
+          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2076#2149#1" />
-            <element signature="e#2193#2268#1" />
-            <element signature="e#2315#2396#1" />
-            <element signature="e#2443#2524#1" />
-            <element signature="e#2565#2634#1" />
-            <element signature="e#2677#2750#1" />
-            <element signature="e#2794#2872#1" />
-            <element signature="e#2913#2985#1" />
-            <element signature="e#3042#3146#1" />
-            <element signature="e#3199#3295#1" />
-            <element signature="e#3347#3441#1" />
-            <element signature="e#3483#3557#1" />
-            <element signature="e#3601#3679#1" />
-            <element signature="e#3721#3792#1" />
-            <element signature="e#3871#4004#1" />
-            <element signature="e#4053#4187#1" />
-            <element signature="e#4239#4376#1" />
-            <element signature="e#4428#4565#1" />
-            <element signature="e#4611#4742#1" />
-            <element signature="e#4790#4923#1" />
-            <element signature="e#4947#5524#0" />
-            <element signature="e#5530#6957#0" />
-            <element signature="e#6963#9427#0" />
           </folding>
         </state>
       </provider>

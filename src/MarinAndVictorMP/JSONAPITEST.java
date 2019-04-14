@@ -3,24 +3,30 @@ package src.MarinAndVictorMP;
 import org.json.JSONException;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 
 
 public class JSONAPITEST {
 
+
   public static void main(String[] args) throws MalformedURLException, IOException, JSONException {
-      Monsters dragon = new Monsters("http://www.dnd5eapi.co/api/monsters/57/");
+      URL monstersURL = new URL("http://dnd5eapi.co/api/Monsters/");
       EnounterBuilder enounterBuilder = new EnounterBuilder();
-      System.out.println("Name of the Monster: " + dragon.name);
-      System.out.println("AC: " + dragon.AC);
-      System.out.println("Saving throws: " +dragon.savingThrows);
-      System.out.println("CR: " + dragon.challenge_rating);
-      System.out.println("XP: " +dragon.CrToXp(dragon.challenge_rating));
-      System.out.println(dragon.alignment);
-      dragon.GetStats();
-      System.out.println(dragon.subtype);
-      System.out.println(dragon.senses);
-      System.out.println(dragon.damage_immunities);
+      Monsters.GetMonster(monstersURL + "37/");
+      System.out.println("Name of the Monster: " + Monsters.name);
+      System.out.println("AC: " + Monsters.AC);
+      System.out.println("Saving throws: " +Monsters.savingThrows);
+      System.out.println("CR: " + Monsters.challenge_rating);
+      System.out.println("XP: " +Monsters.CrToXp(Monsters.challenge_rating));
+      System.out.println(Monsters.alignment);
+      Monsters.GetStats();
+      System.out.println(Monsters.subtype);
+      System.out.println(Monsters.senses);
+      System.out.println(Monsters.damage_immunities);
       System.out.println(enounterBuilder.PartyXpThreshold(6,6,"medium"));
+  }
+
+  public static void BuildTheMonster(){
 
   }
 }

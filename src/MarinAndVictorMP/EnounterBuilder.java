@@ -3,40 +3,97 @@ package src.MarinAndVictorMP;
 public class EnounterBuilder {
     int numberOfMonsters;
     int numberOfPlayers;
+    String difficulty;
     // TODO needs the challenge difficulty
     // TODO take the player levels into account
     // TODO take the number of players into account
     // TODO Find the amount of exp given by the encounter
 
-    public double EncounterMultiplier(int numberOfMonsters, int numberOfPlayers){
-        double multiplier;
-        switch (numberOfMonsters){
-            case 1:
-                multiplier = 1;
-                break;
-            case 2:
-                multiplier = 1.5;
-                break;
-            case 3: case 4: case 5: case 6:
-                multiplier = 2;
-                break;
-            case 7: case 8: case 9: case 10:
-                multiplier = 2.5;
-                break;
-            case 11: case 12: case 13: case 14:
-                multiplier = 3;
-                break;
-            case 15:
-                multiplier = 4;
-                break;
-            default:
-                multiplier = 0;
-                break;
+
+    public static double EncounterMultiplier(int numberOfMonsters, int numberOfPlayers){
+        double multiplier = 1;
+        if (numberOfPlayers < 6 && numberOfPlayers > 2){
+            switch (numberOfMonsters){
+                case 1:
+                    multiplier = 1;
+                    break;
+                case 2:
+                    multiplier = 1.5;
+                    break;
+                case 3: case 4: case 5: case 6:
+                    multiplier = 2;
+                    break;
+                case 7: case 8: case 9: case 10:
+                    multiplier = 2.5;
+                    break;
+                case 11: case 12: case 13: case 14:
+                    multiplier = 3;
+                    break;
+                case 15:
+                    multiplier = 4;
+                    break;
+                default:
+                    multiplier = 1;
+                    break;
+            }
+        } else if (numberOfPlayers < 3 && numberOfPlayers > 0){
+            switch (numberOfMonsters){
+                case 1:
+                    multiplier = 1.5;
+                    break;
+                case 2:
+                    multiplier = 2;
+                    break;
+                case 3: case 4: case 5: case 6:
+                    multiplier = 2.5;
+                    break;
+                case 7: case 8: case 9: case 10:
+                    multiplier = 3;
+                    break;
+                case 11: case 12: case 13: case 14:
+                    multiplier = 4;
+                    break;
+                case 15:
+                    multiplier = 5;
+                    break;
+                default:
+                    multiplier = 1;
+                    break;
+            }
+        } else if(numberOfPlayers > 5){
+            switch (numberOfMonsters){
+                case 1:
+                    multiplier = 0.5;
+                    break;
+                case 2:
+                    multiplier = 1;
+                    break;
+                case 3: case 4: case 5: case 6:
+                    multiplier = 1.5;
+                    break;
+                case 7: case 8: case 9: case 10:
+                    multiplier = 2;
+                    break;
+                case 11: case 12: case 13: case 14:
+                    multiplier = 2.5;
+                    break;
+                case 15:
+                    multiplier = 3;
+                    break;
+                default:
+                    multiplier = 1;
+                    break;
+            }
         }
         return multiplier;
     }
 
-    public int PartyXpThreshold(int numberOfPlayers, int levelOfPlayers, String difficulty){
+    public static int GivenEncounterXp(int xp, double multiplier, int numberOfMonsters){
+        int encounterXp = (int) ((xp * multiplier) * numberOfMonsters);
+        return encounterXp;
+    }
+
+    public static int PartyXpThreshold(int numberOfPlayers, int levelOfPlayers, String difficulty){
         int partyXpThreshold = 0;
         switch (difficulty){
             case "easy":
