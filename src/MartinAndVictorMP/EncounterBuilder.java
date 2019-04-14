@@ -1,4 +1,4 @@
-package src.MarinAndVictorMP;
+package src.MartinAndVictorMP;
 
 public class EncounterBuilder {
     // Maybe we should use an ArrayList for the players instead of the Int?
