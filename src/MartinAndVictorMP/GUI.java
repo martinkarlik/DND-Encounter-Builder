@@ -1,8 +1,11 @@
 package src.MartinAndVictorMP;
 
+import org.json.JSONException;
+
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 
 public class GUI extends JFrame {
     private JLabel numOfPlayersL = new JLabel("Number of players:");
@@ -94,14 +97,20 @@ public class GUI extends JFrame {
                 EncounterBuilder.setMinMonsters(Integer.parseInt(minMonstersT.getText()));
                 EncounterBuilder.setMaxMonsters(Integer.parseInt(maxMonstersT.getText()));
                 EncounterBuilder.setDifficulty(difficultyT.getText().toLowerCase());
-
+                try {
+                    EncounterBuilder.BuildEncounter();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                }
 
 
                 // For debugging
-                System.out.println("Number of players: " + EncounterBuilder.getNumberOfPlayers());
+                /*System.out.println("Number of players: " + EncounterBuilder.getNumberOfPlayers());
                 System.out.println("Level of players: " + EncounterBuilder.getLevelOfPlayers());
                 System.out.println("Random number of monsters: " + EncounterBuilder.getNumberOfMonsters());
-                System.out.println("Difficulty: " + EncounterBuilder.getDifficulty());
+                System.out.println("Difficulty: " + EncounterBuilder.getDifficulty());*/
 
             }
         });

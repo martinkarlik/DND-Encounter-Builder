@@ -9,9 +9,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Monsters {
     protected static ArrayList<String> savingThrows = new ArrayList<>();
+
 
     protected static String name, size, type, subtype, alignment, speed, damage_vulnerabilities,damage_resistances,
             damage_immunities, senses, languages, hit_dice;
@@ -128,8 +130,10 @@ public class Monsters {
 
     // Used instead of the constructor so we don't have to generate objects
     // Gets the monster info from the API and assigns all the variables from the JSON file
-    public static void GetMonster(URL baseURL, String monsterID) throws IOException, JSONException{
-        URL url = new URL(baseURL + monsterID);
+    public static void getMonster() throws IOException, JSONException{
+        Random rand = new Random();
+        int monsterID = rand.nextInt((325 - 1) + 1);
+        URL url = new URL("http://dnd5eapi.co/api/monsters/" + monsterID + "/");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
 
@@ -233,8 +237,12 @@ public class Monsters {
         }
     }
 
+    public static String getName() {
+        return name;
+    }
+
     // Calculates the number bonus from the stats
-    public static int GetBonus(int number){
+    public static int getBonus(int number){
         int bonus = 0;
         switch (number){
             case 1:
@@ -290,20 +298,21 @@ public class Monsters {
     }
 
     // Gets the attribute stats of the monster
-    public static void GetStats(){
-        System.out.println("Strength: " + strength + " " + GetBonus(strength));
-        System.out.println("Dexterity: " + dexterity + " " + GetBonus(dexterity));
-        System.out.println("Constitution: " + constitution + " " + GetBonus(constitution));
-        System.out.println("Intelligence: " + intelligence + " " + GetBonus(intelligence));
-        System.out.println("Wisdom: " + wisdom + " " + GetBonus(wisdom));
-        System.out.println("Charisma: " + charisma + " " + GetBonus(charisma));
+    // This might need change
+    public static void getStats(){
+        System.out.println("Strength: " + strength + " " + getBonus(strength));
+        System.out.println("Dexterity: " + dexterity + " " + getBonus(dexterity));
+        System.out.println("Constitution: " + constitution + " " + getBonus(constitution));
+        System.out.println("Intelligence: " + intelligence + " " + getBonus(intelligence));
+        System.out.println("Wisdom: " + wisdom + " " + getBonus(wisdom));
+        System.out.println("Charisma: " + charisma + " " + getBonus(charisma));
     }
 
     // Used to calculate the difficulty of the battle
-    public static int CrToXp(double challenge_rating){
+    public static int CrToXp(){
         int xp = 0;
         switch (Double.toString(challenge_rating)){
-            case "0":
+            case "0.0":
                 xp = 10;
                 break;
             case "0.125":

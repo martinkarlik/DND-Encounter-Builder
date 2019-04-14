@@ -1,9 +1,12 @@
 package src.MartinAndVictorMP;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.Random;
 
 public class EncounterBuilder {
-    // Maybe we should use an ArrayList for the players instead of the Int?
+
     private static int numberOfMonsters;
     private static int numberOfPlayers;
     private static int levelOfPlayers;
@@ -12,25 +15,24 @@ public class EncounterBuilder {
     private static String difficulty;
     private static int partyXpThreshold;
 
-    public static int getLevelOfPlayers() {
-        return levelOfPlayers;
-    }
+
+    // Getters and setters
 
     public static void setLevelOfPlayers(int levelOfPlayers) {
         EncounterBuilder.levelOfPlayers = levelOfPlayers;
     }
 
+
     public static void setMinMonsters(int minMonsters) {
         EncounterBuilder.minMonsters = minMonsters;
     }
 
-    public static void setMaxMonsters(int maxMonsters) {
-        EncounterBuilder.maxMonsters = maxMonsters;
+
+    public static void setMaxMonsters(int mm) {
+        maxMonsters = mm;
     }
 
     public static int getNumberOfMonsters(){
-        Random rand = new Random();
-        numberOfMonsters = rand.nextInt((maxMonsters - minMonsters) + 1);
         return numberOfMonsters;
     }
 
@@ -50,15 +52,20 @@ public class EncounterBuilder {
         difficulty = dc;
     }
 
+    public static void NumberOfMonsters(){
+        // TODO fix this, it is only assigned to 0 no matter what
+        Random rand = new Random();
+        int monsterNumber = rand.nextInt((maxMonsters - minMonsters) + 1);
+        numberOfMonsters = monsterNumber;
+        System.out.println("Got herer" + numberOfMonsters);
+    }
+
 
     // Gets the different multipliers that are required if there are more than one monster
-    public static double EncounterMultiplier(int numberOfMonsters, int numberOfPlayers){
+    public static double EncounterMultiplier(){
         double multiplier = 1;
         if (numberOfPlayers < 6 && numberOfPlayers > 2){
             switch (numberOfMonsters){
-                case 1:
-                    multiplier = 1;
-                    break;
                 case 2:
                     multiplier = 1.5;
                     break;
@@ -74,6 +81,7 @@ public class EncounterBuilder {
                 case 15:
                     multiplier = 4;
                     break;
+                case 1:
                 default:
                     multiplier = 1;
                     break;
@@ -107,9 +115,6 @@ public class EncounterBuilder {
                 case 1:
                     multiplier = 0.5;
                     break;
-                case 2:
-                    multiplier = 1;
-                    break;
                 case 3: case 4: case 5: case 6:
                     multiplier = 1.5;
                     break;
@@ -122,6 +127,7 @@ public class EncounterBuilder {
                 case 15:
                     multiplier = 3;
                     break;
+                case 2:
                 default:
                     multiplier = 1;
                     break;
@@ -132,26 +138,29 @@ public class EncounterBuilder {
 
     // The actual xp that the encounter gives, takes monster xp and amount of monsters and multiplier into account
     // This is the number that should match closely up with the table for encounters. Page 82 in the DM's guide
-    public static int GivenEncounterXp(int monsterXp, double multiplier, int numberOfMonsters){
+    public static int GivenEncounterXp(){
+        int monsterXp = Monsters.CrToXp();
+        double multiplier = EncounterMultiplier();
+        NumberOfMonsters();
         int encounterXp = (int) ((monsterXp * multiplier) * numberOfMonsters);
         return encounterXp;
     }
 
     // Gets the party xp threshold by getting the number of players and taking into account the difficulty
     // This is the number that the monsters xp should be as close to as possible.
-    public static int PartyXpThreshold( String difficulty, int levelOfPlayers, int numberOfPlayers){
+    public static int PartyXpThreshold(){
         switch (difficulty){
             case "easy":
-                NestedEasy(levelOfPlayers, numberOfPlayers);
+                NestedEasy();
                 break;
             case "medium":
-                NestedMedium(levelOfPlayers, numberOfPlayers);
+                NestedMedium();
                 break;
             case "hard":
-                NestedHard(levelOfPlayers, numberOfPlayers);
+                NestedHard();
                 break;
             case "deadly":
-                NestedDeadly(levelOfPlayers, numberOfPlayers);
+                NestedDeadly();
                 break;
             default:
                 System.out.println("Something went wrong with the party xp threshold");
@@ -161,11 +170,10 @@ public class EncounterBuilder {
     }
 
     // This is done for readability
-    private static void NestedEasy(int levelOfPlayers, int numberOfPlayers) {
+    private static void NestedEasy() {
         switch (levelOfPlayers){
             case 1:
                 partyXpThreshold = (25 * numberOfPlayers);
-                System.out.println("Got to easy" + partyXpThreshold);
                 break;
             case 2:
                 partyXpThreshold = (50 * numberOfPlayers);
@@ -230,7 +238,7 @@ public class EncounterBuilder {
         }
     }
 
-    private static void NestedMedium(int levelOfPlayers, int numberOfPlayers) {
+    private static void NestedMedium() {
         switch (levelOfPlayers) {
             case 1:
                 partyXpThreshold = (50 * numberOfPlayers);
@@ -298,7 +306,7 @@ public class EncounterBuilder {
         }
     }
 
-    private static void NestedHard(int levelOfPlayers, int numberOfPlayers) {
+    private static void NestedHard() {
         switch (levelOfPlayers) {
             case 1:
                 partyXpThreshold = (75 * numberOfPlayers);
@@ -366,7 +374,7 @@ public class EncounterBuilder {
         }
     }
 
-    private static void NestedDeadly(int levelOfPlayers, int numberOfPlayers) {
+    private static void NestedDeadly() {
         switch (levelOfPlayers) {
             case 1:
                 partyXpThreshold = (50 * numberOfPlayers);
@@ -432,6 +440,22 @@ public class EncounterBuilder {
                 System.out.println("Error in deadly case party xp threshold");
                 break;
         }
+    }
+
+    public static synchronized void BuildEncounter() throws IOException, JSONException {
+        // First create the monster
+        // Get the name of the monster
+        // Get the stats from the monster
+        // Get the number of monsters
+        // Convert cr to xp
+        // Get number of players
+        // Get level of players
+        // Get difficulty
+        // Get party xp threshold
+
+        Monsters.getMonster();
+        System.out.println(Monsters.getName());
+        System.out.println(GivenEncounterXp());
     }
 
     // TODO function to build the encounter
