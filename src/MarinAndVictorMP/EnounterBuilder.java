@@ -91,8 +91,8 @@ public class EnounterBuilder {
 
     // The actual xp that the encounter gives, takes monster xp and amount of monsters and multiplier into account
     // This is the number that should match closely up with the table for encounters. Page 82 in the DM's guide
-    public static int GivenEncounterXp(int xp, double multiplier, int numberOfMonsters){
-        int encounterXp = (int) ((xp * multiplier) * numberOfMonsters);
+    public static int GivenEncounterXp(int monsterXp, double multiplier, int numberOfMonsters){
+        int encounterXp = (int) ((monsterXp * multiplier) * numberOfMonsters);
         return encounterXp;
     }
 

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="802a5364-beb7-48ad-b237-cf17add10083" name="Default Changelist" comment="Merge branch 'master' of https://github.com/VictorBuch/DMMiniproject&#10;&#10;# Conflicts:&#10;#&#9;src/API.java">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="164">
@@ -89,17 +86,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+            <state relative-caret-position="284">
+              <caret line="95" column="27" lean-forward="true" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
               <folding>
                 <element signature="method#EncounterMultiplier#0;class#EnounterBuilder#0" />
                 <element signature="e#495#1114#0" />
                 <element signature="e#1331#2038#0" />
                 <element signature="e#2116#2823#0" />
-                <element signature="method#MonsterXpThreshold#0;class#EnounterBuilder#0" />
                 <element signature="method#PartyXpThreshold#0;class#EnounterBuilder#0" />
                 <element signature="e#1331#4047#0" />
                 <element signature="e#4138#6920#0" />
@@ -139,8 +135,8 @@
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/API.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/JSON.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/Monsters.java" />
-        <option value="$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java" />
         <option value="$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java" />
+        <option value="$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java" />
       </list>
     </option>
   </component>
@@ -371,31 +367,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
-          <folding>
-            <element signature="method#EncounterMultiplier#0;class#EnounterBuilder#0" />
-            <element signature="e#495#1114#0" />
-            <element signature="e#1331#2038#0" />
-            <element signature="e#2116#2823#0" />
-            <element signature="method#MonsterXpThreshold#0;class#EnounterBuilder#0" />
-            <element signature="method#PartyXpThreshold#0;class#EnounterBuilder#0" />
-            <element signature="e#1331#4047#0" />
-            <element signature="e#4138#6920#0" />
-            <element signature="e#6986#9714#0" />
-            <element signature="e#9805#12533#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/JSONAPITEST.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MarinAndVictorMP/EnounterBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="95" column="27" lean-forward="true" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+          <folding>
+            <element signature="method#EncounterMultiplier#0;class#EnounterBuilder#0" />
+            <element signature="e#495#1114#0" />
+            <element signature="e#1331#2038#0" />
+            <element signature="e#2116#2823#0" />
+            <element signature="method#PartyXpThreshold#0;class#EnounterBuilder#0" />
+            <element signature="e#1331#4047#0" />
+            <element signature="e#4138#6920#0" />
+            <element signature="e#6986#9714#0" />
+            <element signature="e#9805#12533#0" />
           </folding>
         </state>
       </provider>
