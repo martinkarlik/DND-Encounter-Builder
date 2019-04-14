@@ -1,13 +1,29 @@
 package src.MarinAndVictorMP;
 
+import java.util.ArrayList;
+
 public class EnounterBuilder {
-    int numberOfMonsters;
-    int numberOfPlayers;
-    String difficulty;
-    // TODO needs the challenge difficulty
-    // TODO take the player levels into account
-    // TODO take the number of players into account
-    // TODO Find the amount of exp given by the encounter
+    // Maybe we should use an ArrayList for the players instead of the Int?
+    private ArrayList<Integer> numberOfPlayersArray = new ArrayList<>();
+    private int numberOfMonsters;
+    private int numberOfPlayers = numberOfPlayersArray.size();
+    private String difficulty;
+
+    public int getNumberOfMonsters() {
+        return numberOfMonsters;
+    }
+
+    public void setNumberOfMonsters(int numberOfMonsters) {
+        this.numberOfMonsters = numberOfMonsters;
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
 
 
     // Gets the different multipliers that are required if there are more than one monster
