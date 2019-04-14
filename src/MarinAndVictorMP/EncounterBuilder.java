@@ -1,12 +1,9 @@
 package src.MarinAndVictorMP;
 
-import java.util.ArrayList;
-
-public class EnounterBuilder {
+public class EncounterBuilder {
     // Maybe we should use an ArrayList for the players instead of the Int?
-    private ArrayList<Integer> numberOfPlayersArray = new ArrayList<>();
     private int numberOfMonsters;
-    private int numberOfPlayers = numberOfPlayersArray.size();
+    private int numberOfPlayers;
     private String difficulty;
     private static int partyXpThreshold;
 
@@ -409,5 +406,9 @@ public class EnounterBuilder {
                 break;
         }
     }
+
+    // TODO min max monsters
+    // TODO monster type
+    // TODO button to build the encounter
 
 }
