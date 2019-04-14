@@ -20,7 +20,7 @@ public class JSONAPITEST {
       System.out.println(Monsters.subtype);
       System.out.println(Monsters.senses);
       System.out.println(Monsters.damage_immunities);
-      System.out.println(enounterBuilder.PartyXpThreshold(6,6,"medium"));
+      System.out.println(enounterBuilder.PartyXpThreshold("deadly", 6, 4));
   }
 
   public static void BuildTheMonster(){

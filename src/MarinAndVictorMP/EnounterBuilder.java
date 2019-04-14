@@ -8,6 +8,7 @@ public class EnounterBuilder {
     private int numberOfMonsters;
     private int numberOfPlayers = numberOfPlayersArray.size();
     private String difficulty;
+    private static int partyXpThreshold;
 
     public int getNumberOfMonsters() {
         return numberOfMonsters;
@@ -114,282 +115,299 @@ public class EnounterBuilder {
 
     // Gets the party xp threshold by getting the number of players and taking into account the difficulty
     // This is the number that the monsters xp should be as close to as possible.
-    public static int PartyXpThreshold(int numberOfPlayers, int levelOfPlayers, String difficulty){
-        int partyXpThreshold = 0;
+    public static int PartyXpThreshold( String difficulty, int levelOfPlayers, int numberOfPlayers){
         switch (difficulty){
             case "easy":
-                switch (levelOfPlayers){
-                    case 1:
-                        partyXpThreshold = (25 * numberOfPlayers);
-                        break;
-                    case 2:
-                        partyXpThreshold = (50 * numberOfPlayers);
-                        break;
-                    case 3:
-                        partyXpThreshold = (75 * numberOfPlayers);
-                        break;
-                    case 4:
-                        partyXpThreshold = (125 * numberOfPlayers);
-                        break;
-                    case 5:
-                        partyXpThreshold = (250 * numberOfPlayers);
-                        break;
-                    case 6:
-                        partyXpThreshold = (300 * numberOfPlayers);
-                        break;
-                    case 7:
-                        partyXpThreshold = (350 * numberOfPlayers);
-                        break;
-                    case 8:
-                        partyXpThreshold = (450 * numberOfPlayers);
-                        break;
-                    case 9:
-                        partyXpThreshold = (550 * numberOfPlayers);
-                        break;
-                    case 10:
-                        partyXpThreshold = (600 * numberOfPlayers);
-                        break;
-                    case 11:
-                        partyXpThreshold = (800 * numberOfPlayers);
-                        break;
-                    case 12:
-                        partyXpThreshold = (1000 * numberOfPlayers);
-                        break;
-                    case 13:
-                        partyXpThreshold = (1100 * numberOfPlayers);
-                        break;
-                    case 14:
-                        partyXpThreshold = (1250 * numberOfPlayers);
-                        break;
-                    case 15:
-                        partyXpThreshold = (1400 * numberOfPlayers);
-                        break;
-                    case 16:
-                        partyXpThreshold = (1600 * numberOfPlayers);
-                        break;
-                    case 17:
-                        partyXpThreshold = (2000 * numberOfPlayers);
-                        break;
-                    case 18:
-                        partyXpThreshold = (2100 * numberOfPlayers);
-                        break;
-                    case 19:
-                        partyXpThreshold = (2400 * numberOfPlayers);
-                        break;
-                    case 20:
-                        partyXpThreshold = (2800 * numberOfPlayers);
-                        break;
-                    default:
-                        System.out.println("Error in easy party xp threshold");
-                        break;
-                }
+                NestedEasy(levelOfPlayers, numberOfPlayers);
                 break;
             case "medium":
-                switch (levelOfPlayers) {
-                    case 1:
-                        partyXpThreshold = (50 * numberOfPlayers);
-                        break;
-                    case 2:
-                        partyXpThreshold = (100 * numberOfPlayers);
-                        break;
-                    case 3:
-                        partyXpThreshold = (150 * numberOfPlayers);
-                        break;
-                    case 4:
-                        partyXpThreshold = (250 * numberOfPlayers);
-                        break;
-                    case 5:
-                        partyXpThreshold = (500 * numberOfPlayers);
-                        break;
-                    case 6:
-                        partyXpThreshold = 600 * numberOfPlayers;
-                        System.out.println("got here");
-                        break;
-                    case 7:
-                        partyXpThreshold = (750 * numberOfPlayers);
-                        break;
-                    case 8:
-                        partyXpThreshold = (900 * numberOfPlayers);
-                        break;
-                    case 9:
-                        partyXpThreshold = (1100 * numberOfPlayers);
-                        break;
-                    case 10:
-                        partyXpThreshold = (1200 * numberOfPlayers);
-                        break;
-                    case 11:
-                        partyXpThreshold = (1600 * numberOfPlayers);
-                        break;
-                    case 12:
-                        partyXpThreshold = (2000 * numberOfPlayers);
-                        break;
-                    case 13:
-                        partyXpThreshold = (2200 * numberOfPlayers);
-                        break;
-                    case 14:
-                        partyXpThreshold = (2500 * numberOfPlayers);
-                        break;
-                    case 15:
-                        partyXpThreshold = (2800 * numberOfPlayers);
-                        break;
-                    case 16:
-                        partyXpThreshold = (3200 * numberOfPlayers);
-                        break;
-                    case 17:
-                        partyXpThreshold = (3900 * numberOfPlayers);
-                        break;
-                    case 18:
-                        partyXpThreshold = (4200 * numberOfPlayers);
-                        break;
-                    case 19:
-                        partyXpThreshold = (4900 * numberOfPlayers);
-                        break;
-                    case 20:
-                        partyXpThreshold = (5700 * numberOfPlayers);
-                        break;
-                    default:
-                        System.out.println("Error in medium case party xp threshold");
-                        break;
-                }
+                NestedMedium(levelOfPlayers, numberOfPlayers);
+                break;
             case "hard":
-                switch (levelOfPlayers) {
-                    case 1:
-                        partyXpThreshold = (75 * numberOfPlayers);
-                        break;
-                    case 2:
-                        partyXpThreshold = (150 * numberOfPlayers);
-                        break;
-                    case 3:
-                        partyXpThreshold = (225 * numberOfPlayers);
-                        break;
-                    case 4:
-                        partyXpThreshold = (375 * numberOfPlayers);
-                        break;
-                    case 5:
-                        partyXpThreshold = (750 * numberOfPlayers);
-                        break;
-                    case 6:
-                        partyXpThreshold = (900 * numberOfPlayers);
-                        break;
-                    case 7:
-                        partyXpThreshold = (1100 * numberOfPlayers);
-                        break;
-                    case 8:
-                        partyXpThreshold = (1400 * numberOfPlayers);
-                        break;
-                    case 9:
-                        partyXpThreshold = (1600 * numberOfPlayers);
-                        break;
-                    case 10:
-                        partyXpThreshold = (1900 * numberOfPlayers);
-                        break;
-                    case 11:
-                        partyXpThreshold = (2400 * numberOfPlayers);
-                        break;
-                    case 12:
-                        partyXpThreshold = (3000 * numberOfPlayers);
-                        break;
-                    case 13:
-                        partyXpThreshold = (3400 * numberOfPlayers);
-                        break;
-                    case 14:
-                        partyXpThreshold = (3800 * numberOfPlayers);
-                        break;
-                    case 15:
-                        partyXpThreshold = (4300 * numberOfPlayers);
-                        break;
-                    case 16:
-                        partyXpThreshold = (4800 * numberOfPlayers);
-                        break;
-                    case 17:
-                        partyXpThreshold = (5900 * numberOfPlayers);
-                        break;
-                    case 18:
-                        partyXpThreshold = (6300 * numberOfPlayers);
-                        break;
-                    case 19:
-                        partyXpThreshold = (7300 * numberOfPlayers);
-                        break;
-                    case 20:
-                        partyXpThreshold = (8500 * numberOfPlayers);
-                        break;
-                    default:
-                        System.out.println("Error in hard case party xp threshold");
-                        break;
-                }
+                NestedHard(levelOfPlayers, numberOfPlayers);
                 break;
             case "deadly":
-                switch (levelOfPlayers) {
-                    case 1:
-                        partyXpThreshold = (50 * numberOfPlayers);
-                        break;
-                    case 2:
-                        partyXpThreshold = (100 * numberOfPlayers);
-                        break;
-                    case 3:
-                        partyXpThreshold = (150 * numberOfPlayers);
-                        break;
-                    case 4:
-                        partyXpThreshold = (250 * numberOfPlayers);
-                        break;
-                    case 5:
-                        partyXpThreshold = (500 * numberOfPlayers);
-                        break;
-                    case 6:
-                        partyXpThreshold = (600 * numberOfPlayers);
-                        break;
-                    case 7:
-                        partyXpThreshold = (750 * numberOfPlayers);
-                        break;
-                    case 8:
-                        partyXpThreshold = (900 * numberOfPlayers);
-                        break;
-                    case 9:
-                        partyXpThreshold = (1100 * numberOfPlayers);
-                        break;
-                    case 10:
-                        partyXpThreshold = (1200 * numberOfPlayers);
-                        break;
-                    case 11:
-                        partyXpThreshold = (1600 * numberOfPlayers);
-                        break;
-                    case 12:
-                        partyXpThreshold = (2000 * numberOfPlayers);
-                        break;
-                    case 13:
-                        partyXpThreshold = (2200 * numberOfPlayers);
-                        break;
-                    case 14:
-                        partyXpThreshold = (2500 * numberOfPlayers);
-                        break;
-                    case 15:
-                        partyXpThreshold = (2800 * numberOfPlayers);
-                        break;
-                    case 16:
-                        partyXpThreshold = (3200 * numberOfPlayers);
-                        break;
-                    case 17:
-                        partyXpThreshold = (3900 * numberOfPlayers);
-                        break;
-                    case 18:
-                        partyXpThreshold = (4200 * numberOfPlayers);
-                        break;
-                    case 19:
-                        partyXpThreshold = (4900 * numberOfPlayers);
-                        break;
-                    case 20:
-                        partyXpThreshold = (5700 * numberOfPlayers);
-                        break;
-                    default:
-                        System.out.println("Error in deadly case party xp threshold");
-                        break;
-                }
+                NestedDeadly(levelOfPlayers, numberOfPlayers);
                 break;
             default:
                 System.out.println("Something went wrong with the party xp threshold");
                 break;
         }
         return partyXpThreshold;
+    }
+
+    // This is done for readability
+    private static void NestedEasy(int levelOfPlayers, int numberOfPlayers) {
+        switch (levelOfPlayers){
+            case 1:
+                partyXpThreshold = (25 * numberOfPlayers);
+                System.out.println("Got to easy" + partyXpThreshold);
+                break;
+            case 2:
+                partyXpThreshold = (50 * numberOfPlayers);
+                break;
+            case 3:
+                partyXpThreshold = (75 * numberOfPlayers);
+                break;
+            case 4:
+                partyXpThreshold = (125 * numberOfPlayers);
+                break;
+            case 5:
+                partyXpThreshold = (250 * numberOfPlayers);
+                break;
+            case 6:
+                partyXpThreshold = (300 * numberOfPlayers);
+                break;
+            case 7:
+                partyXpThreshold = (350 * numberOfPlayers);
+                break;
+            case 8:
+                partyXpThreshold = (450 * numberOfPlayers);
+                break;
+            case 9:
+                partyXpThreshold = (550 * numberOfPlayers);
+                break;
+            case 10:
+                partyXpThreshold = (600 * numberOfPlayers);
+                break;
+            case 11:
+                partyXpThreshold = (800 * numberOfPlayers);
+                break;
+            case 12:
+                partyXpThreshold = (1000 * numberOfPlayers);
+                break;
+            case 13:
+                partyXpThreshold = (1100 * numberOfPlayers);
+                break;
+            case 14:
+                partyXpThreshold = (1250 * numberOfPlayers);
+                break;
+            case 15:
+                partyXpThreshold = (1400 * numberOfPlayers);
+                break;
+            case 16:
+                partyXpThreshold = (1600 * numberOfPlayers);
+                break;
+            case 17:
+                partyXpThreshold = (2000 * numberOfPlayers);
+                break;
+            case 18:
+                partyXpThreshold = (2100 * numberOfPlayers);
+                break;
+            case 19:
+                partyXpThreshold = (2400 * numberOfPlayers);
+                break;
+            case 20:
+                partyXpThreshold = (2800 * numberOfPlayers);
+                break;
+            default:
+                System.out.println("Error in easy party xp threshold");
+                break;
+        }
+    }
+
+    private static void NestedMedium(int levelOfPlayers, int numberOfPlayers) {
+        switch (levelOfPlayers) {
+            case 1:
+                partyXpThreshold = (50 * numberOfPlayers);
+                break;
+            case 2:
+                partyXpThreshold = (100 * numberOfPlayers);
+                break;
+            case 3:
+                partyXpThreshold = (150 * numberOfPlayers);
+                break;
+            case 4:
+                partyXpThreshold = (250 * numberOfPlayers);
+                break;
+            case 5:
+                partyXpThreshold = (500 * numberOfPlayers);
+                break;
+            case 6:
+                partyXpThreshold = 600 * numberOfPlayers;
+                break;
+            case 7:
+                partyXpThreshold = (750 * numberOfPlayers);
+                break;
+            case 8:
+                partyXpThreshold = (900 * numberOfPlayers);
+                break;
+            case 9:
+                partyXpThreshold = (1100 * numberOfPlayers);
+                break;
+            case 10:
+                partyXpThreshold = (1200 * numberOfPlayers);
+                break;
+            case 11:
+                partyXpThreshold = (1600 * numberOfPlayers);
+                break;
+            case 12:
+                partyXpThreshold = (2000 * numberOfPlayers);
+                break;
+            case 13:
+                partyXpThreshold = (2200 * numberOfPlayers);
+                break;
+            case 14:
+                partyXpThreshold = (2500 * numberOfPlayers);
+                break;
+            case 15:
+                partyXpThreshold = (2800 * numberOfPlayers);
+                break;
+            case 16:
+                partyXpThreshold = (3200 * numberOfPlayers);
+                break;
+            case 17:
+                partyXpThreshold = (3900 * numberOfPlayers);
+                break;
+            case 18:
+                partyXpThreshold = (4200 * numberOfPlayers);
+                break;
+            case 19:
+                partyXpThreshold = (4900 * numberOfPlayers);
+                break;
+            case 20:
+                partyXpThreshold = (5700 * numberOfPlayers);
+                break;
+            default:
+                System.out.println("Error in medium case party xp threshold");
+                break;
+        }
+    }
+
+    private static void NestedHard(int levelOfPlayers, int numberOfPlayers) {
+        switch (levelOfPlayers) {
+            case 1:
+                partyXpThreshold = (75 * numberOfPlayers);
+                break;
+            case 2:
+                partyXpThreshold = (150 * numberOfPlayers);
+                break;
+            case 3:
+                partyXpThreshold = (225 * numberOfPlayers);
+                break;
+            case 4:
+                partyXpThreshold = (375 * numberOfPlayers);
+                break;
+            case 5:
+                partyXpThreshold = (750 * numberOfPlayers);
+                break;
+            case 6:
+                partyXpThreshold = (900 * numberOfPlayers);
+                break;
+            case 7:
+                partyXpThreshold = (1100 * numberOfPlayers);
+                break;
+            case 8:
+                partyXpThreshold = (1400 * numberOfPlayers);
+                break;
+            case 9:
+                partyXpThreshold = (1600 * numberOfPlayers);
+                break;
+            case 10:
+                partyXpThreshold = (1900 * numberOfPlayers);
+                break;
+            case 11:
+                partyXpThreshold = (2400 * numberOfPlayers);
+                break;
+            case 12:
+                partyXpThreshold = (3000 * numberOfPlayers);
+                break;
+            case 13:
+                partyXpThreshold = (3400 * numberOfPlayers);
+                break;
+            case 14:
+                partyXpThreshold = (3800 * numberOfPlayers);
+                break;
+            case 15:
+                partyXpThreshold = (4300 * numberOfPlayers);
+                break;
+            case 16:
+                partyXpThreshold = (4800 * numberOfPlayers);
+                break;
+            case 17:
+                partyXpThreshold = (5900 * numberOfPlayers);
+                break;
+            case 18:
+                partyXpThreshold = (6300 * numberOfPlayers);
+                break;
+            case 19:
+                partyXpThreshold = (7300 * numberOfPlayers);
+                break;
+            case 20:
+                partyXpThreshold = (8500 * numberOfPlayers);
+                break;
+            default:
+                System.out.println("Error in hard case party xp threshold");
+                break;
+        }
+    }
+
+    private static void NestedDeadly(int levelOfPlayers, int numberOfPlayers) {
+        switch (levelOfPlayers) {
+            case 1:
+                partyXpThreshold = (50 * numberOfPlayers);
+                break;
+            case 2:
+                partyXpThreshold = (100 * numberOfPlayers);
+                break;
+            case 3:
+                partyXpThreshold = (150 * numberOfPlayers);
+                break;
+            case 4:
+                partyXpThreshold = (250 * numberOfPlayers);
+                break;
+            case 5:
+                partyXpThreshold = (500 * numberOfPlayers);
+                break;
+            case 6:
+                partyXpThreshold = (600 * numberOfPlayers);
+                break;
+            case 7:
+                partyXpThreshold = (750 * numberOfPlayers);
+                break;
+            case 8:
+                partyXpThreshold = (900 * numberOfPlayers);
+                break;
+            case 9:
+                partyXpThreshold = (1100 * numberOfPlayers);
+                break;
+            case 10:
+                partyXpThreshold = (1200 * numberOfPlayers);
+                break;
+            case 11:
+                partyXpThreshold = (1600 * numberOfPlayers);
+                break;
+            case 12:
+                partyXpThreshold = (2000 * numberOfPlayers);
+                break;
+            case 13:
+                partyXpThreshold = (2200 * numberOfPlayers);
+                break;
+            case 14:
+                partyXpThreshold = (2500 * numberOfPlayers);
+                break;
+            case 15:
+                partyXpThreshold = (2800 * numberOfPlayers);
+                break;
+            case 16:
+                partyXpThreshold = (3200 * numberOfPlayers);
+                break;
+            case 17:
+                partyXpThreshold = (3900 * numberOfPlayers);
+                break;
+            case 18:
+                partyXpThreshold = (4200 * numberOfPlayers);
+                break;
+            case 19:
+                partyXpThreshold = (4900 * numberOfPlayers);
+                break;
+            case 20:
+                partyXpThreshold = (5700 * numberOfPlayers);
+                break;
+            default:
+                System.out.println("Error in deadly case party xp threshold");
+                break;
+        }
     }
 
 }
