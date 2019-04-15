@@ -1,11 +1,7 @@
 package src.MartinAndVictorMP;
 
-<<<<<<< HEAD
 import org.json.JSONException;
-
-=======
 import java.util.ArrayList;
->>>>>>> d0a27c986709990c38169b4eba434dedf90a1018
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -115,16 +111,14 @@ public class GUI extends JFrame {
                                 GroupLayout.Alignment.BASELINE)
                                 .addComponent(minMonstersT)
                                 .addComponent(maxMonstersT)
-<<<<<<< HEAD
                                 .addComponent(buildEncounter)).addGroup(
                         layout.createParallelGroup(
                                 GroupLayout.Alignment.BASELINE)
                                 .addComponent(prompt)
                                 .addComponent(monsterList)
-                                .addComponent(stats)));
-=======
-                                .addComponent(monsterTypeT)
-                                .addComponent(buildEncounter)));
+                                .addComponent(stats))
+                                .addComponent(buildEncounter));
+
 
         // This works but only if the enter button on the keyboard is being hit.
         buildEncounter.addActionListener(new ActionListener() {
@@ -134,7 +128,7 @@ public class GUI extends JFrame {
                 EncounterBuilder.setLevelOfPlayers(Integer.parseInt(levelOfPlayersT.getText()));
                 EncounterBuilder.setMinMonsters(Integer.parseInt(minMonstersT.getText()));
                 EncounterBuilder.setMaxMonsters(Integer.parseInt(maxMonstersT.getText()));
-                EncounterBuilder.setDifficulty(difficultyT.getText().toLowerCase());
+                EncounterBuilder.setDifficulty(difficultyBox.toString().toLowerCase());
                 try {
                     EncounterBuilder.BuildEncounter();
                 } catch (IOException ex) {
@@ -152,7 +146,6 @@ public class GUI extends JFrame {
 
             }
         });
->>>>>>> 915e67990069e6f665feb8eb2e077031272d68ae
         pack();
         setVisible(true);
     }
