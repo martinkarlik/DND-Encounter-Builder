@@ -128,7 +128,7 @@ public class GUI extends JFrame {
                 EncounterBuilder.setLevelOfPlayers(Integer.parseInt(levelOfPlayersT.getText()));
                 EncounterBuilder.setMinMonsters(Integer.parseInt(minMonstersT.getText()));
                 EncounterBuilder.setMaxMonsters(Integer.parseInt(maxMonstersT.getText()));
-                EncounterBuilder.setDifficulty(difficultyBox.toString().toLowerCase());
+                EncounterBuilder.setDifficulty(String.valueOf(difficultyBox.getSelectedItem()).toLowerCase());
                 try {
                     EncounterBuilder.BuildEncounter();
                 } catch (IOException ex) {

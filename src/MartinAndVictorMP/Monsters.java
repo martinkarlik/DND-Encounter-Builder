@@ -243,7 +243,7 @@ public class Monsters {
 
     // Calculates the number bonus from the stats
     public static int getBonus(int number){
-        int bonus = 0;
+        int bonus;
         switch (number){
             case 1:
                 bonus = -5;
@@ -293,6 +293,9 @@ public class Monsters {
             case 30:
                 bonus = 10;
                 break;
+            default:
+                bonus = 0;
+                break;
         }
         return bonus;
     }
@@ -309,100 +312,105 @@ public class Monsters {
     }
 
     // Used to calculate the difficulty of the battle
-    public static int CrToXp(){
-        int xp = 0;
-        switch (Double.toString(challenge_rating)){
-            case "0.0":
-                xp = 10;
-                break;
-            case "0.125":
-                xp = 25;
-                break;
-            case "0.25":
-                xp = 50;
-                break;
-            case "0.5":
-                xp = 100;
-                break;
-            case "1.0":
-                xp = 200;
-                break;
-            case "2.0":
-                xp = 450;
-                break;
-            case "3.0":
-                xp = 700;
-                break;
-            case "4.0":
-                xp = 1100;
-                break;
-            case "5.0":
-                xp = 1800;
-                break;
-            case "6.0":
-                xp = 2300;
-                break;
-            case "7.0":
-                xp = 2900;
-                break;
-            case "8.0":
-                xp = 3900;
-                break;
-            case "9.0":
-                xp = 5000;
-                break;
-            case "10.0":
-                xp = 5900;
-                break;
-            case "11.0":
-                xp = 7200;
-                break;
-            case "12.0":
-                xp = 8400;
-                break;
-            case "13.0":
-                xp = 10000;
-                break;
-            case "14.0":
-                xp = 11500;
-                break;
-            case "15.0":
-                xp = 13000;
-                break;
-            case "16.0":
-                xp = 15000;
-                break;
-            case "17.0":
-                xp = 18000;
-                break;
-            case "18.0":
-                xp = 20000;
-                break;
-            case "19.0":
-                xp = 22000;
-                break;
-            case "20.0":
-                xp = 25000;
-                break;
-            case "21.0":
-                xp = 33000;
-                break;
-            case "22.0":
-                xp = 41000;
-                break;
-            case "23.0":
-                xp = 50000;
-                break;
-            case "24.0":
-                xp = 62000;
-                break;
-            case "30.0":
-                xp = 155000;
-                break;
-            default:
-                System.out.println("No xp set");
-                break;
+    public static int CrToXp() throws NullPointerException {
+        try {
+            int xp = 0;
+            switch (Double.toString(challenge_rating)) {
+                case "0.0":
+                    xp = 10;
+                    break;
+                case "0.125":
+                    xp = 25;
+                    break;
+                case "0.25":
+                    xp = 50;
+                    break;
+                case "0.5":
+                    xp = 100;
+                    break;
+                case "1.0":
+                    xp = 200;
+                    break;
+                case "2.0":
+                    xp = 450;
+                    break;
+                case "3.0":
+                    xp = 700;
+                    break;
+                case "4.0":
+                    xp = 1100;
+                    break;
+                case "5.0":
+                    xp = 1800;
+                    break;
+                case "6.0":
+                    xp = 2300;
+                    break;
+                case "7.0":
+                    xp = 2900;
+                    break;
+                case "8.0":
+                    xp = 3900;
+                    break;
+                case "9.0":
+                    xp = 5000;
+                    break;
+                case "10.0":
+                    xp = 5900;
+                    break;
+                case "11.0":
+                    xp = 7200;
+                    break;
+                case "12.0":
+                    xp = 8400;
+                    break;
+                case "13.0":
+                    xp = 10000;
+                    break;
+                case "14.0":
+                    xp = 11500;
+                    break;
+                case "15.0":
+                    xp = 13000;
+                    break;
+                case "16.0":
+                    xp = 15000;
+                    break;
+                case "17.0":
+                    xp = 18000;
+                    break;
+                case "18.0":
+                    xp = 20000;
+                    break;
+                case "19.0":
+                    xp = 22000;
+                    break;
+                case "20.0":
+                    xp = 25000;
+                    break;
+                case "21.0":
+                    xp = 33000;
+                    break;
+                case "22.0":
+                    xp = 41000;
+                    break;
+                case "23.0":
+                    xp = 50000;
+                    break;
+                case "24.0":
+                    xp = 62000;
+                    break;
+                case "30.0":
+                    xp = 155000;
+                    break;
+                default:
+                    System.out.println("No xp set");
+                    break;
+            }
+            return xp;
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            return 0;
         }
-        return xp;
-   }
+    }
 }

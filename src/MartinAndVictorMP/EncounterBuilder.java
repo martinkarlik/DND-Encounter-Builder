@@ -1,9 +1,8 @@
 package src.MartinAndVictorMP;
 
 import org.json.JSONException;
-
 import java.io.IOException;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class EncounterBuilder {
 
@@ -14,6 +13,8 @@ public class EncounterBuilder {
     private static int maxMonsters;
     private static String difficulty;
     private static int partyXpThreshold;
+
+    private static double multiplier;
 
 
     // Getters and setters
@@ -53,19 +54,17 @@ public class EncounterBuilder {
     }
 
     public static void NumberOfMonsters(){
-        // TODO fix this, it is only assigned to 0 no matter what
-        Random rand = new Random();
-        int monsterNumber = rand.nextInt((maxMonsters - minMonsters) + 1);
-        numberOfMonsters = monsterNumber;
-        System.out.println("Got herer" + numberOfMonsters);
+        numberOfMonsters = ThreadLocalRandom.current().nextInt(minMonsters, maxMonsters + 1);
     }
 
 
     // Gets the different multipliers that are required if there are more than one monster
     public static double EncounterMultiplier(){
-        double multiplier = 1;
         if (numberOfPlayers < 6 && numberOfPlayers > 2){
             switch (numberOfMonsters){
+                case 1:
+                    multiplier = 1;
+                    break;
                 case 2:
                     multiplier = 1.5;
                     break;
@@ -80,10 +79,6 @@ public class EncounterBuilder {
                     break;
                 case 15:
                     multiplier = 4;
-                    break;
-                case 1:
-                default:
-                    multiplier = 1;
                     break;
             }
         } else if (numberOfPlayers < 3 && numberOfPlayers > 0){
@@ -140,31 +135,36 @@ public class EncounterBuilder {
     // This is the number that should match closely up with the table for encounters. Page 82 in the DM's guide
     public static int GivenEncounterXp(){
         int monsterXp = Monsters.CrToXp();
-        double multiplier = EncounterMultiplier();
         NumberOfMonsters();
-        int encounterXp = (int) ((monsterXp * multiplier) * numberOfMonsters);
+        double mp = EncounterMultiplier();
+        int encounterXp = (int) ((monsterXp * mp) * numberOfMonsters);
         return encounterXp;
     }
 
     // Gets the party xp threshold by getting the number of players and taking into account the difficulty
     // This is the number that the monsters xp should be as close to as possible.
-    public static int PartyXpThreshold(){
-        switch (difficulty){
-            case "easy":
-                NestedEasy();
-                break;
-            case "medium":
-                NestedMedium();
-                break;
-            case "hard":
-                NestedHard();
-                break;
-            case "deadly":
-                NestedDeadly();
-                break;
-            default:
-                System.out.println("Something went wrong with the party xp threshold");
-                break;
+    public static int PartyXpThreshold() throws NullPointerException{
+        System.out.println("difficulty: " + difficulty);
+        try {
+            switch (difficulty) {
+                case "easy":
+                    NestedEasy();
+                    break;
+                case "medium":
+                    NestedMedium();
+                    break;
+                case "hard":
+                    NestedHard();
+                    break;
+                case "deadly":
+                    NestedDeadly();
+                    break;
+                default:
+                    System.out.println("Something went wrong with the party xp threshold");
+                    break;
+            }
+        } catch (NullPointerException e){
+            difficulty = "easy";
         }
         return partyXpThreshold;
     }
@@ -444,20 +444,26 @@ public class EncounterBuilder {
 
     public static synchronized void BuildEncounter() throws IOException, JSONException {
         // First create the monster
+        Monsters.getMonster();
+
         // Get the name of the monster
+        System.out.println(Monsters.getName());
+
         // Get the stats from the monster
+        Monsters.getStats();
+
         // Get the number of monsters
         // Convert cr to xp
+        System.out.println(GivenEncounterXp());
+
         // Get number of players
         // Get level of players
         // Get difficulty
         // Get party xp threshold
+        System.out.println(PartyXpThreshold());
 
-        Monsters.getMonster();
-        System.out.println(Monsters.getName());
-        System.out.println(GivenEncounterXp());
+        // TODO make a function/call that compares the party xp to monster xp and generates a new monster as close to the party xp as possible.
+
+
     }
-
-    // TODO function to build the encounter
-
 }
