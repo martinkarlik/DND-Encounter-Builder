@@ -137,13 +137,6 @@ public class GUI extends JFrame {
                     ex.printStackTrace();
                 }
 
-
-                // For debugging
-                /*System.out.println("Number of players: " + EncounterBuilder.getNumberOfPlayers());
-                System.out.println("Level of players: " + EncounterBuilder.getLevelOfPlayers());
-                System.out.println("Random number of monsters: " + EncounterBuilder.getNumberOfMonsters());
-                System.out.println("Difficulty: " + EncounterBuilder.getDifficulty());*/
-
             }
         });
         pack();
