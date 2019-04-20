@@ -1,7 +1,6 @@
 package src.MartinAndVictorMP;
 
 import org.json.JSONException;
-import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -23,7 +22,7 @@ public class GUI extends JFrame {
     private JButton buildEncounter = new JButton("Build Encounter");
 
     private JLabel prompt = new JLabel("PLAYERS VS.");
-    String[] monsters = new String[5]; //max 5 different types of monsters
+    private JLabel chosenMonster = new JLabel("");
     private JLabel stats = new JLabel("Stats and maybe image of the selected monster");
 
 
@@ -40,24 +39,16 @@ public class GUI extends JFrame {
         minMonstersT.setPreferredSize(new Dimension(100, 30));
         maxMonstersT.setPreferredSize(new Dimension(100, 30));
         minMonstersT.setPreferredSize(new Dimension(100, 30));
+
         prompt.setPreferredSize(new Dimension(200, 50));
+        chosenMonster.setPreferredSize(new Dimension(200, 50));
         stats.setPreferredSize(new Dimension(200, 50));
 
-        buildEncounter.setPreferredSize(new Dimension(400, 400));
+        buildEncounter.setPreferredSize(new Dimension(400, 100));
 
         String[] difficulties = {"Easy", "Medium", "Hard", "Deadly"};
         JComboBox difficultyBox = new JComboBox(difficulties);
         difficultyBox.setSelectedIndex(0);
-
-        for (int i = 0; i < monsters.length; i++) {
-            monsters[i] = "";
-        }
-
-        //just to showcase
-        monsters[0] = "3x Red Dragon";
-        monsters[1] = "2x Kobold";
-
-        JList monsterList = new JList(monsters);
 
         setTitle("D&D Encounter Builder");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -83,7 +74,7 @@ public class GUI extends JFrame {
                                 .addComponent(levelOfPlayersT)
                                 .addComponent(maxMonstersL)
                                 .addComponent(maxMonstersT)
-                                .addComponent(monsterList)).addGroup(
+                                .addComponent(chosenMonster)).addGroup(
                         layout.createParallelGroup(
                                 GroupLayout.Alignment.LEADING)
                                 .addComponent(difficultyL)
@@ -115,44 +106,44 @@ public class GUI extends JFrame {
                         layout.createParallelGroup(
                                 GroupLayout.Alignment.BASELINE)
                                 .addComponent(prompt)
-                                .addComponent(monsterList)
+                                .addComponent(chosenMonster)
                                 .addComponent(stats))
                                 .addComponent(buildEncounter));
 
 
-        // This works but only if the enter button on the keyboard is being hit.
+
         buildEncounter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EncounterBuilder.setNumberOfPlayers(Integer.parseInt(numOfPlayersT.getText()));
-                EncounterBuilder.setLevelOfPlayers(Integer.parseInt(levelOfPlayersT.getText()));
-                EncounterBuilder.setMinMonsters(Integer.parseInt(minMonstersT.getText()));
-                EncounterBuilder.setMaxMonsters(Integer.parseInt(maxMonstersT.getText()));
-                EncounterBuilder.setDifficulty(String.valueOf(difficultyBox.getSelectedItem()).toLowerCase());
+                Encounter encounter = new Encounter(Integer.parseInt(numOfPlayersT.getText()),
+                                                    Integer.parseInt(levelOfPlayersT.getText()),
+                                                    Integer.parseInt(minMonstersT.getText()),
+                                                    Integer.parseInt(maxMonstersT.getText()),
+                                                    String.valueOf(difficultyBox.getSelectedItem()).toLowerCase()
+                );
+
                 try {
-                    EncounterBuilder.BuildEncounter();
+                    Monster monster = encounter.buildEncounter();
+                    if (monster != null) {
+                        chosenMonster.setText(encounter.getMonstersInEncounter() + "x " + monster.getName());
+                        System.out.println("Accuracy of the match: "+ encounter.getAccuracy()*100 + "%");
+                    } else {
+                        System.out.println("Monster not found.");
+                    }
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 } catch (JSONException ex) {
                     ex.printStackTrace();
                 }
-
-
-                // For debugging
-                /*System.out.println("Number of players: " + EncounterBuilder.getNumberOfPlayers());
-                System.out.println("Level of players: " + EncounterBuilder.getLevelOfPlayers());
-                System.out.println("Random number of monsters: " + EncounterBuilder.getNumberOfMonsters());
-                System.out.println("Difficulty: " + EncounterBuilder.getDifficulty());*/
-
             }
         });
         pack();
         setVisible(true);
     }
 }
-    /*
-    @Override
-    public void actionPerformed(ActionEvent actionEvent) {
 
-    }
-    */
+/*
+Need to make the input fields foolproof (only integers in number of players, minMonsters has to be lower that maxMonsters, etc.)
+Maybe instead of making the user input correct min and max monsters, we can just interchange the values if they're wrong.
+Also, would be nice if the UI would be nice. I'll get to that.
+*/
