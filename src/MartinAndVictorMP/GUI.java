@@ -24,7 +24,6 @@ public class GUI extends JFrame {
 
     private JButton buildEncounter = new JButton("Build Encounter");
 
-    private JLabel prompt = new JLabel("PLAYERS AGAINST");
     private JLabel chosenMonster = new JLabel("");
     private JLabel stats = new JLabel("");
 
@@ -33,9 +32,9 @@ public class GUI extends JFrame {
 
         // To make sure that the user can only input ints and the minimum is 1
         formatter.setValueClass(Integer.class);
-        formatter.setMinimum(1);
-        formatter.setMaximum(Integer.MAX_VALUE);
-        formatter.setAllowsInvalid(false);
+        formatter.setMinimum(0);
+        formatter.setMaximum(100);
+        formatter.setAllowsInvalid(true);
         JFormattedTextField minMonstersT = new JFormattedTextField(formatter);
         JFormattedTextField maxMonstersT = new JFormattedTextField(formatter);
         JFormattedTextField numOfPlayersT = new JFormattedTextField(formatter);
@@ -53,8 +52,6 @@ public class GUI extends JFrame {
         minMonstersT.setPreferredSize(new Dimension(100, 30));
         maxMonstersT.setPreferredSize(new Dimension(100, 30));
         minMonstersT.setPreferredSize(new Dimension(100, 30));
-
-        prompt.setPreferredSize(new Dimension(200, 50));
         chosenMonster.setPreferredSize(new Dimension(200, 50));
         stats.setPreferredSize(new Dimension(200, 50));
 
@@ -83,8 +80,7 @@ public class GUI extends JFrame {
                                 .addComponent(numOfPlayersL)
                                 .addComponent(numOfPlayersT)
                                 .addComponent(minMonstersL)
-                                .addComponent(minMonstersT)
-                                .addComponent(prompt)).addGroup(
+                                .addComponent(minMonstersT)).addGroup(
                         layout.createParallelGroup(
                                 GroupLayout.Alignment.LEADING)
                                 .addComponent(levelOfPlayersL)
@@ -122,7 +118,6 @@ public class GUI extends JFrame {
                                 .addComponent(buildEncounter)).addGroup(
                         layout.createParallelGroup(
                                 GroupLayout.Alignment.BASELINE)
-                                .addComponent(prompt)
                                 .addComponent(chosenMonster)
                                 .addComponent(stats))
                                 .addComponent(buildEncounter));
@@ -135,47 +130,40 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                //  was an idiot thanks :)
                 if(Integer.parseInt(minMonstersT.getText()) > Integer.parseInt(maxMonstersT.getText())){
                     String tempMax = maxMonstersT.getText();
                     maxMonstersT.setText(minMonstersT.getText());
                     minMonstersT.setText(tempMax);
                 }
 
-                EncounterBuilder encounterBuilder = new EncounterBuilder(new Encounter(
-                        Integer.parseInt(numOfPlayersT.getText()),
-                        Integer.parseInt(levelOfPlayersT.getText()),
-                        Integer.parseInt(minMonstersT.getText()),
-                        Integer.parseInt(maxMonstersT.getText()),
-                        String.valueOf(difficultyBox.getSelectedItem()).toLowerCase()
-                ));
+                if (minMonstersT.getText().length() > 0 &&
+                        maxMonstersT.getText().length() > 0 &&
+                        numOfPlayersT.getText().length() > 0 &&
+                        levelOfPlayersT.getText().length() > 0) {
+
+                    EncounterBuilder encounterBuilder = new EncounterBuilder(new Encounter(
+                            Integer.parseInt(numOfPlayersT.getText()),
+                            Integer.parseInt(levelOfPlayersT.getText()),
+                            Integer.parseInt(minMonstersT.getText()),
+                            Integer.parseInt(maxMonstersT.getText()),
+                            String.valueOf(difficultyBox.getSelectedItem()).toLowerCase()
+                    ));
 
 
-                encounterBuilder.start();
+                    encounterBuilder.start();
+
+                    try {
+                        encounterBuilder.join();
+                        chosenMonster.setText(encounterBuilder.getEncounter().getNumberOfMonsters() + "x " + encounterBuilder.getEncounter().getMonster().getName());
+                        //chosenMonster.setText("Searching...");
+
+                        ArrayList<String> attributes = encounterBuilder.getEncounter().getMonster().getAttributes();
+                        ArrayList<String> savingThrows = encounterBuilder.getEncounter().getMonster().getSavingThrows();
 
 
-                try {
-                    encounterBuilder.join();
-                    chosenMonster.setText(encounterBuilder.getEncounter().getNumberOfMonsters() + "x " + encounterBuilder.getEncounter().getMonster().getName());
-                    //chosenMonster.setText("Searching...");
-
-                    ArrayList<String> attributes = encounterBuilder.getEncounter().getMonster().getAttributes();
-                    ArrayList<String> savingThrows = encounterBuilder.getEncounter().getMonster().getSavingThrows();
-
-                    for (String att: attributes) {
-                        if (att.length() > 0) {
-                            System.out.println(att);
-                        }
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
                     }
-
-                    for (String sT: savingThrows) {
-                        if (sT.length() > 0) {
-                            System.out.println(sT);
-                        }
-                    }
-
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
                 }
             }
         });
