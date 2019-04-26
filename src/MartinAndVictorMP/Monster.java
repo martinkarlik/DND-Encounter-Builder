@@ -16,6 +16,7 @@ public class Monster {
     private ArrayList<String> savingThrows = new ArrayList<>();
     private ArrayList<String> attributes = new ArrayList<>();
     private double challengeRating;
+    private String name;
 
 
     public Monster(int monsterID) throws IOException, JSONException {
@@ -41,13 +42,12 @@ public class Monster {
             JSONObject jsonObject = new JSONObject(response.toString());
 
             challengeRating = jsonObject.getDouble("challenge_rating");
+            name = jsonObject.getString("name");
 
-            attributes.add("Challenge rating: " + Double.toString(challengeRating));
-            attributes.add("Name: " + jsonObject.getString("name"));
             attributes.add("Size: " + jsonObject.getString("size"));
             attributes.add("Type: " + jsonObject.getString("type"));
             attributes.add("Armor class: " + Integer.toString(jsonObject.getInt("armor_class")));
-            attributes.add("Hit point: " + Integer.toString(jsonObject.getInt("hit_points")));
+            attributes.add("Hit points: " + Integer.toString(jsonObject.getInt("hit_points")));
             attributes.add("Hit dice: " + jsonObject.getString("hit_dice"));
             attributes.add("Speed: " + jsonObject.getString("speed"));
 
@@ -76,7 +76,7 @@ public class Monster {
             }
             if(jsonObject.has("charisma")){
                 int charisma = jsonObject.getInt("charisma");
-                attributes.add("Intelligence: " + charisma + " " + getBonus(charisma));
+                attributes.add("Charisma: " + charisma + " " + getBonus(charisma));
             }
             if(jsonObject.has("languages")){
                 attributes.add("Languages: " + jsonObject.getString("languages"));
@@ -127,63 +127,63 @@ public class Monster {
     }
 
     public String getName() {
-        return attributes.get(1);
+        return name;
     }
 
     // Calculates the number bonus from the stats
-    private int getBonus(int number){
-        int bonus;
-        switch (number){
+    private String getBonus(int attribute){
+        String bonus;
+        switch (attribute){
             case 1:
-                bonus = -5;
+                bonus = "-5";
                 break;
             case 2: case 3:
-                bonus = -4;
+                bonus = "-4";
                 break;
             case 4: case 5:
-                bonus = -3;
+                bonus = "-3";
                 break;
             case 6: case 7:
-                bonus = -2;
+                bonus = "-2";
                 break;
             case 8: case 9:
-                bonus = -1;
+                bonus = "-1";
                 break;
             case 10: case 11:
-                bonus = 0;
+                bonus = "0";
                 break;
             case 12: case 13:
-                bonus = 1;
+                bonus = "+1";
                 break;
             case 14: case 15:
-                bonus = 2;
+                bonus = "+2";
                 break;
             case 16: case 17:
-                bonus = 3;
+                bonus = "+3";
                 break;
             case 18: case 19:
-                bonus = 4;
+                bonus = "+4";
                 break;
             case 20: case 21:
-                bonus = 5;
+                bonus = "+5";
                 break;
             case 22: case 23:
-                bonus = 6;
+                bonus = "+6";
                 break;
             case 24: case 25:
-                bonus = 7;
+                bonus = "+7";
                 break;
             case 26: case 27:
-                bonus = 8;
+                bonus = "+8";
                 break;
             case 28: case 29:
-                bonus = 9;
+                bonus = "+9";
                 break;
             case 30:
-                bonus = 10;
+                bonus = "+10";
                 break;
             default:
-                bonus = 0;
+                bonus = "";
                 break;
         }
         return bonus;
