@@ -16,7 +16,13 @@ public class Monster {
     private ArrayList<String> savingThrows = new ArrayList<>();
     private ArrayList<String> attributes = new ArrayList<>();
     private double challengeRating;
+
     private String name;
+    private String description;
+    private String[] generalInfo = new String[3];
+    private String[] attributes = new String[6];
+    private String[] otherInfo = new
+
 
 
     public Monster(int monsterID) throws IOException, JSONException {

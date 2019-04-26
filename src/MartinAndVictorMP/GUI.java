@@ -16,16 +16,15 @@ public class GUI extends JFrame {
     private JLabel minMonstersL = new JLabel("Min monsters:");
     private JLabel maxMonstersL = new JLabel("Max monsters:");
     private JLabel difficultyL = new JLabel("Difficulty:");
+    private JComboBox difficultyBox;
+    private JButton buildEncounter = new JButton("Build Encounter");
+    private JLabel chosenMonster = new JLabel("");
+    private JLabel stats = new JLabel("");
 
     NumberFormat format = NumberFormat.getInstance();
     NumberFormatter formatter = new NumberFormatter(format);
 
-    private JComboBox difficultyBox;
-
-    private JButton buildEncounter = new JButton("Build Encounter");
-
-    private JLabel chosenMonster = new JLabel("");
-    private JLabel stats = new JLabel("");
+    GUI monsterGUI;
 
 
     public GUI() {
@@ -40,22 +39,7 @@ public class GUI extends JFrame {
         JFormattedTextField numOfPlayersT = new JFormattedTextField(formatter);
         JFormattedTextField levelOfPlayersT = new JFormattedTextField(formatter);
 
-        numOfPlayersL.setPreferredSize(new Dimension(100, 30));
-        levelOfPlayersL.setPreferredSize(new Dimension(100, 30));
-        minMonstersL.setPreferredSize(new Dimension(100, 30));
-        maxMonstersL.setPreferredSize(new Dimension(100, 30));
-        difficultyL.setPreferredSize(new Dimension(100, 30));
-        minMonstersL.setPreferredSize(new Dimension(100, 30));
-
-        numOfPlayersT.setPreferredSize(new Dimension(100, 30));
-        levelOfPlayersT.setPreferredSize(new Dimension(100, 30));
-        minMonstersT.setPreferredSize(new Dimension(100, 30));
-        maxMonstersT.setPreferredSize(new Dimension(100, 30));
-        minMonstersT.setPreferredSize(new Dimension(100, 30));
-        chosenMonster.setPreferredSize(new Dimension(200, 50));
-        stats.setPreferredSize(new Dimension(200, 50));
-
-        buildEncounter.setPreferredSize(new Dimension(400, 100));
+        monsterGUI = null;
 
         setResizable(false);
 
@@ -149,17 +133,28 @@ public class GUI extends JFrame {
                             String.valueOf(difficultyBox.getSelectedItem()).toLowerCase()
                     ));
 
+                    /*
+                    if (monsterGUI == null) { delete current monsterGUI if creating a new one.. currently always deletes the new GUI :{
+                        monsterGUI.dispose();
+                    }
+                    */
 
                     encounterBuilder.start();
 
+
                     try {
                         encounterBuilder.join();
-                        chosenMonster.setText(encounterBuilder.getEncounter().getNumberOfMonsters() + "x " + encounterBuilder.getEncounter().getMonster().getName());
-                        //chosenMonster.setText("Searching...");
+
+                        monsterGUI = new MonsterGUI(name, description, generalInfo, attributes, actions);
+
+                        /*
+                        name
+
+
+                        */
 
                         ArrayList<String> attributes = encounterBuilder.getEncounter().getMonster().getAttributes();
                         ArrayList<String> savingThrows = encounterBuilder.getEncounter().getMonster().getSavingThrows();
-
 
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();
