@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -141,7 +142,7 @@ public class Monster {
     }
 
     // Calculates the number bonus from the stats
-    public int getBonus(int number){
+    private int getBonus(int number){
         int bonus;
         switch (number){
             case 1:
@@ -199,9 +200,11 @@ public class Monster {
         return bonus;
     }
 
+
+
     // Gets the attribute stats of the monster
     // This might need change
-    public ArrayList<String> getStats() {
+    public ArrayList<String> getAttributes() {
         return attributes;
         /*
         System.out.println("Strength: " + strength + " " + getBonus(strength));
@@ -211,6 +214,10 @@ public class Monster {
         System.out.println("Wisdom: " + wisdom + " " + getBonus(wisdom));
         System.out.println("Charisma: " + charisma + " " + getBonus(charisma));
         */
+    }
+
+    public ArrayList<String> getSavingThrows() {
+        return savingThrows;
     }
 
     // Used to calculate the difficulty of the battle

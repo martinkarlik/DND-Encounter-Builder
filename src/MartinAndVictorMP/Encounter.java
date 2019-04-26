@@ -15,7 +15,8 @@ public class Encounter {
     private int partyXpThreshold;
     private int[] shuffledOrder;
 
-    private int monstersInEncounter;
+    private int numberOfMonsters;
+    private Monster monster;
     private float accuracy;
 
     /*
@@ -32,48 +33,26 @@ public class Encounter {
 
         partyXpThreshold = getPartyXpThreshold();
 
-        monstersInEncounter = 0;
+        numberOfMonsters = 0;
+        monster = null;
         accuracy = 0.0f;
     }
 
-    /*
-    I don't think we need these setters and getters (even though it's a good convention to have them, in this case it really seems redundant, since we set the values from outside anyway)
-    public void setLevelOfPlayers(int levelOfPlayers_) {
-        levelOfPlayers = levelOfPlayers_;
+
+    public void setNumberOfMonsters(int monstersInEncounter_) {
+        numberOfMonsters = monstersInEncounter_;
     }
 
-    public void setNumberOfPlayers(int numberOfPlayers_) {
-        numberOfPlayers = numberOfPlayers_;
+    public int getNumberOfMonsters() {
+        return numberOfMonsters;
     }
 
-    public void setMinMonsters(int minMonsters_) {
-        minMonsters = minMonsters_;
+    public void setMonster(Monster monster) {
+        this.monster = monster;
     }
 
-    public void setMaxMonsters(int maxMonsters_) {
-        maxMonsters = maxMonsters_;
-    }
-
-    public void setDifficulty(String difficulty_) {
-        difficulty = difficulty_;
-    }
-
-    public int getNumberOfPlayers() {
-        return numberOfPlayers;
-    }
-
-    public String getDifficulty() {
-        return difficulty;
-    }
-
-    */
-
-    public void setMonstersInEncounter(int monstersInEncounter_) {
-        monstersInEncounter = monstersInEncounter_;
-    }
-
-    public int getMonstersInEncounter() {
-        return monstersInEncounter;
+    public Monster getMonster() {
+        return monster;
     }
 
     public void setAccuracy(float accuracy_) {
@@ -384,7 +363,7 @@ public class Encounter {
         return newOrder;
     }
 
-    public synchronized Monster buildEncounter() throws IOException, JSONException {
+    public synchronized void buildEncounter() throws IOException, JSONException {
 
         int[] order = new int[325];
         for (int i = 0; i < order.length; order[i] = ++i); // {1, 2, ..., 325}
@@ -396,10 +375,13 @@ public class Encounter {
             a, that would be computively much more expensive, since we'd have to look at ALL the monsters and
             b, certain user inputs would yield repetitive outcomes (same monster all the time - not what we want)
         */
+
         Monster tempMonster;
+        monster = null;
 
         for (int index = 0; index < shuffledOrder.length; index++) {
             tempMonster = new Monster(shuffledOrder[index]); //the next tempMonster will use the memory of current one and after the for loop, garbage collector will get rid of the memory leak anyway
+            setMonster(tempMonster);
             float tolerableError = ((float) index / (float) shuffledOrder.length); //tolerable error is increasing linearly with every unsuccessful iteration (i.e. when monster does not suit the conditions)
             for (int numOfMonsters = minMonsters; numOfMonsters <= maxMonsters; numOfMonsters++) { //find the amount of monsters that suits (if any)
                 double monsterXp = tempMonster.getXp() * getEncounterMultiplier(numOfMonsters) * numOfMonsters; //calculate this encounter's xp
@@ -409,13 +391,13 @@ public class Encounter {
                     System.out.println("Had to check " + index + " monsters.");
                     System.out.println(numOfMonsters + "x " + tempMonster.getName());
 
-                    setMonstersInEncounter(numOfMonsters);
+                    setNumberOfMonsters(numOfMonsters);
+                    setMonster(tempMonster);
                     setAccuracy(1.0f - (float) Math.abs(partyXpThreshold - monsterXp) / (float) partyXpThreshold);
-                    return tempMonster;
+
+                    return;
                 }
             }
         }
-
-        return null; //.. if no monster fits the user's conditions
     }
 }

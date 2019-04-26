@@ -6,6 +6,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class GUI extends JFrame {
     private JLabel numOfPlayersL = new JLabel("Number of players:");
@@ -19,11 +20,13 @@ public class GUI extends JFrame {
     private JTextField minMonstersT = new JTextField("");
     private JTextField maxMonstersT = new JTextField("");
 
+    private JComboBox difficultyBox;
+
     private JButton buildEncounter = new JButton("Build Encounter");
 
-    private JLabel prompt = new JLabel("PLAYERS VS.");
+    private JLabel prompt = new JLabel("PLAYERS AGAINST");
     private JLabel chosenMonster = new JLabel("");
-    private JLabel stats = new JLabel("Stats and maybe image of the selected monster");
+    private JLabel stats = new JLabel("");
 
 
     public GUI() {
@@ -48,7 +51,7 @@ public class GUI extends JFrame {
 
         String[] difficulties = {"Easy", "Medium", "Hard", "Deadly"};
         JComboBox difficultyBox = new JComboBox(difficulties);
-        difficultyBox.setSelectedIndex(0);
+        difficultyBox.setSelectedIndex(1);
 
         setTitle("D&D Encounter Builder");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -110,36 +113,52 @@ public class GUI extends JFrame {
                                 .addComponent(stats))
                                 .addComponent(buildEncounter));
 
-
+        pack();
+        setVisible(true);
 
         buildEncounter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Encounter encounter = new Encounter(Integer.parseInt(numOfPlayersT.getText()),
-                                                    Integer.parseInt(levelOfPlayersT.getText()),
-                                                    Integer.parseInt(minMonstersT.getText()),
-                                                    Integer.parseInt(maxMonstersT.getText()),
-                                                    String.valueOf(difficultyBox.getSelectedItem()).toLowerCase()
-                );
+
+                EncounterBuilder encounterBuilder = new EncounterBuilder(new Encounter(
+                        Integer.parseInt(numOfPlayersT.getText()),
+                        Integer.parseInt(levelOfPlayersT.getText()),
+                        Integer.parseInt(minMonstersT.getText()),
+                        Integer.parseInt(maxMonstersT.getText()),
+                        String.valueOf(difficultyBox.getSelectedItem()).toLowerCase()
+                ));
+
+
+                encounterBuilder.start();
+
 
                 try {
-                    Monster monster = encounter.buildEncounter();
-                    if (monster != null) {
-                        chosenMonster.setText(encounter.getMonstersInEncounter() + "x " + monster.getName());
-                        System.out.println("Accuracy of the match: "+ encounter.getAccuracy()*100 + "%");
-                    } else {
-                        System.out.println("Monster not found.");
+                    encounterBuilder.join();
+                    chosenMonster.setText(encounterBuilder.getEncounter().getNumberOfMonsters() + "x " + encounterBuilder.getEncounter().getMonster().getName());
+                    //chosenMonster.setText("Searching...");
+
+                    ArrayList<String> attributes = encounterBuilder.getEncounter().getMonster().getAttributes();
+                    ArrayList<String> savingThrows = encounterBuilder.getEncounter().getMonster().getSavingThrows();
+
+                    for (String att: attributes) {
+                        if (att.length() > 0) {
+                            System.out.println(att);
+                        }
                     }
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                } catch (JSONException ex) {
+
+                    for (String sT: savingThrows) {
+                        if (sT.length() > 0) {
+                            System.out.println(sT);
+                        }
+                    }
+
+                } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
             }
         });
-        pack();
-        setVisible(true);
     }
+
 }
 
 /*
