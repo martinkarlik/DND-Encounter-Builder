@@ -372,7 +372,7 @@ public class Encounter {
         /*
         To ensure randomness, we'll start looking at the monsters in a random order and return monster as soon as we find an acceptable match.
         Of course we could find the most accurate match every time, but
-            a, that would be computively much more expensive, since we'd have to look at ALL the monsters and
+            a, that would be computationally much more expensive, since we'd have to look at ALL the monsters and
             b, certain user inputs would yield repetitive outcomes (same monster all the time - not what we want)
         */
 
