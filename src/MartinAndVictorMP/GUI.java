@@ -2,10 +2,12 @@ package src.MartinAndVictorMP;
 
 import org.json.JSONException;
 import javax.swing.*;
+import javax.swing.text.NumberFormatter;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class GUI extends JFrame {
@@ -15,10 +17,8 @@ public class GUI extends JFrame {
     private JLabel maxMonstersL = new JLabel("Max monsters:");
     private JLabel difficultyL = new JLabel("Difficulty:");
 
-    private JTextField numOfPlayersT = new JTextField("");
-    private JTextField levelOfPlayersT = new JTextField("");
-    private JTextField minMonstersT = new JTextField("");
-    private JTextField maxMonstersT = new JTextField("");
+    NumberFormat format = NumberFormat.getInstance();
+    NumberFormatter formatter = new NumberFormatter(format);
 
     private JComboBox difficultyBox;
 
@@ -30,6 +30,17 @@ public class GUI extends JFrame {
 
 
     public GUI() {
+
+        // To make sure that the user can only input ints and the minimum is 1
+        formatter.setValueClass(Integer.class);
+        formatter.setMinimum(1);
+        formatter.setMaximum(Integer.MAX_VALUE);
+        formatter.setAllowsInvalid(false);
+        JFormattedTextField minMonstersT = new JFormattedTextField(formatter);
+        JFormattedTextField maxMonstersT = new JFormattedTextField(formatter);
+        JFormattedTextField numOfPlayersT = new JFormattedTextField(formatter);
+        JFormattedTextField levelOfPlayersT = new JFormattedTextField(formatter);
+
         numOfPlayersL.setPreferredSize(new Dimension(100, 30));
         levelOfPlayersL.setPreferredSize(new Dimension(100, 30));
         minMonstersL.setPreferredSize(new Dimension(100, 30));
@@ -57,6 +68,7 @@ public class GUI extends JFrame {
 
         setTitle("D&D Encounter Builder");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
 
@@ -118,9 +130,17 @@ public class GUI extends JFrame {
         pack();
         setVisible(true);
 
+
         buildEncounter.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                //  was an idiot thanks :)
+                if(Integer.parseInt(minMonstersT.getText()) > Integer.parseInt(maxMonstersT.getText())){
+                    String tempMax = maxMonstersT.getText();
+                    maxMonstersT.setText(minMonstersT.getText());
+                    minMonstersT.setText(tempMax);
+                }
 
                 EncounterBuilder encounterBuilder = new EncounterBuilder(new Encounter(
                         Integer.parseInt(numOfPlayersT.getText()),
@@ -160,7 +180,6 @@ public class GUI extends JFrame {
             }
         });
     }
-
 }
 
 /*
