@@ -49,6 +49,8 @@ public class GUI extends JFrame {
 
         buildEncounter.setPreferredSize(new Dimension(400, 100));
 
+        setResizable(false);
+
         String[] difficulties = {"Easy", "Medium", "Hard", "Deadly"};
         JComboBox difficultyBox = new JComboBox(difficulties);
         difficultyBox.setSelectedIndex(1);
