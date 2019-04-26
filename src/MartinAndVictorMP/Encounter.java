@@ -381,7 +381,6 @@ public class Encounter {
 
         for (int index = 0; index < shuffledOrder.length; index++) {
             tempMonster = new Monster(shuffledOrder[index]); //the next tempMonster will use the memory of current one and after the for loop, garbage collector will get rid of the memory leak anyway
-            setMonster(tempMonster);
             float tolerableError = ((float) index / (float) shuffledOrder.length); //tolerable error is increasing linearly with every unsuccessful iteration (i.e. when monster does not suit the conditions)
             for (int numOfMonsters = minMonsters; numOfMonsters <= maxMonsters; numOfMonsters++) { //find the amount of monsters that suits (if any)
                 double monsterXp = tempMonster.getXp() * getEncounterMultiplier(numOfMonsters) * numOfMonsters; //calculate this encounter's xp
