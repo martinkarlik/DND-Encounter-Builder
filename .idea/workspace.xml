@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02f2f509-07d0-481f-8a16-214016b0e008" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/Image.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/TheOne/out/production/DMMiniproject/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +32,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="165">
+              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -39,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+            <state relative-caret-position="-588">
+              <caret line="130" column="25" lean-forward="true" selection-start-line="129" selection-start-column="8" selection-end-line="130" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -87,9 +92,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java" />
         <option value="$PROJECT_DIR$/src/MartinAndVictorMP/Encounter.java" />
         <option value="$PROJECT_DIR$/src/MartinAndVictorMP/JPanelWithBackground.java" />
+        <option value="$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java" />
         <option value="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" />
       </list>
     </option>
@@ -115,6 +120,12 @@
               <item name="TheOne" type="b2602c69:ProjectViewProjectNode" />
               <item name="TheOne" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TheOne" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheOne" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TheOne" type="b2602c69:ProjectViewProjectNode" />
@@ -193,15 +204,15 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18820679" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18820679" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" sideWeight="0.50080776" side_tool="true" visible="true" weight="0.18885449" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.50080776" side_tool="true" visible="true" weight="0.32972136" />
       <window_info anchor="bottom" id="Messages" sideWeight="0.49919224" weight="0.32972136" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.18885449" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" sideWeight="0.49919224" visible="true" weight="0.32972136" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" weight="0.18885449" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -221,13 +232,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/EncounterBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -281,17 +285,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/EncounterBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+        <state relative-caret-position="-588">
+          <caret line="130" column="25" lean-forward="true" selection-start-line="129" selection-start-column="8" selection-end-line="130" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="165">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

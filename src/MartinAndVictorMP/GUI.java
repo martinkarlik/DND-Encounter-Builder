@@ -30,7 +30,6 @@ public class GUI extends JFrame {
 
 
     public GUI() {
-
         // To make sure that the user can only input ints and the minimum is 1
         formatter.setValueClass(Integer.class);
         formatter.setMinimum(1);
@@ -40,6 +39,7 @@ public class GUI extends JFrame {
         JFormattedTextField maxMonstersT = new JFormattedTextField(formatter);
         JFormattedTextField numOfPlayersT = new JFormattedTextField(formatter);
         JFormattedTextField levelOfPlayersT = new JFormattedTextField(formatter);
+
 
         numOfPlayersL.setPreferredSize(new Dimension(100, 30));
         levelOfPlayersL.setPreferredSize(new Dimension(100, 30));
