@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02f2f509-07d0-481f-8a16-214016b0e008" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/MartinAndVictorMP/Encounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MartinAndVictorMP/Encounter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/TheOne/out/production/DMMiniproject/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,30 +18,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/Encounter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="374" column="70" selection-start-line="374" selection-start-column="70" selection-end-line="374" selection-end-column="70" />
-              <folding>
-                <element signature="method#Encounter#0;class#Encounter#0" />
-                <element signature="method#getEncounterMultiplier#0;class#Encounter#0" />
-                <element signature="method#getPartyXpThreshold#0;class#Encounter#0" />
-                <element signature="method#nestedEasy#0;class#Encounter#0" />
-                <element signature="method#nestedMedium#0;class#Encounter#0" />
-                <element signature="method#nestedHard#0;class#Encounter#0" />
-                <element signature="method#nestedDeadly#0;class#Encounter#0" />
-                <element signature="method#shuffle#0;class#Encounter#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/EncounterBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="14">
               <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -66,16 +57,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/Monster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="214" column="79" lean-forward="true" selection-start-line="209" selection-start-column="8" selection-end-line="214" selection-end-column="79" />
+            <state relative-caret-position="2658">
+              <caret line="193" column="5" lean-forward="true" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
               <folding>
-                <element signature="e#8860#11614#0" />
+                <element signature="e#5663#5664#0" expanded="true" />
+                <element signature="e#5703#5704#0" expanded="true" />
+                <element signature="e#7252#7253#0" expanded="true" />
+                <element signature="e#7285#7286#0" expanded="true" />
+                <element signature="e#7335#7336#0" expanded="true" />
+                <element signature="e#7370#7371#0" expanded="true" />
+                <element signature="e#7492#10242#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -85,6 +89,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java" />
         <option value="$PROJECT_DIR$/src/MartinAndVictorMP/Encounter.java" />
+        <option value="$PROJECT_DIR$/src/MartinAndVictorMP/JPanelWithBackground.java" />
+        <option value="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" />
       </list>
     </option>
   </component>
@@ -127,6 +133,11 @@
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Images" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -175,6 +186,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="738" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
@@ -205,16 +217,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/Monster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="214" column="79" lean-forward="true" selection-start-line="209" selection-start-column="8" selection-end-line="214" selection-end-column="79" />
-          <folding>
-            <element signature="e#8860#11614#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -236,13 +238,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/Encounter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
@@ -257,6 +252,46 @@
             <element signature="method#nestedDeadly#0;class#Encounter#0" />
             <element signature="method#shuffle#0;class#Encounter#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/JPanelWithBackground.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/Monster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2658">
+          <caret line="193" column="5" lean-forward="true" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
+          <folding>
+            <element signature="e#5663#5664#0" expanded="true" />
+            <element signature="e#5703#5704#0" expanded="true" />
+            <element signature="e#7252#7253#0" expanded="true" />
+            <element signature="e#7285#7286#0" expanded="true" />
+            <element signature="e#7335#7336#0" expanded="true" />
+            <element signature="e#7370#7371#0" expanded="true" />
+            <element signature="e#7492#10242#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
