@@ -15,30 +15,10 @@ public class Monster {
 
     private ArrayList<String> savingThrows = new ArrayList<>();
     private ArrayList<String> attributes = new ArrayList<>();
+    private double challengeRating;
 
-    /*
-    All the attributes would need to be converted to Strings when displaying anyway,
-    so might as well have them in a list from the get go.. can convert to floats, ints and whatnot when needed
-    The choice of ArrayList over simple array is because some monsters might have more attributes.. though if we wanted to state
-    "unknown" to the elements that the monster doesnt have, then we might as well have an array with fixed num of all the attributes.
-    Also, the function getStats would have to be converted to getStrength, getDex, getThis, getThat, getEverything.. This way we can just getArrayList.
-
-
-    The constructor and getMonster function are equally expensive, so might as well have a constructor,
-    it really isnt causing any addition performance problems at all.
-    We wont be generating object though, but deleting the objects right after creating them and getting the essential info.
-     */
 
     public Monster(int monsterID) throws IOException, JSONException {
-
-        /*
-        Getting the url every time is the only thing causing it to run so slowly, the problem is we kinda have to get the url
-        every time, since every monster has its own url..
-        Maybe we could create som base url setup outside of here, and then just slightly change it according to the monster's ID,
-        but I don't really see how that would work.
-        Or we can put the buildEncounter function (which is the only that is constructing monster objects) on a new threat
-        and while the buildEncounter is running, we'd draw a loading circle on the UI, or a random monster images would be appearing.. or something.
-         */
 
         URL url = new URL("http://dnd5eapi.co/api/monsters/" + monsterID + "/");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -60,58 +40,67 @@ public class Monster {
 
             JSONObject jsonObject = new JSONObject(response.toString());
 
+            challengeRating = jsonObject.getDouble("challenge_rating");
 
-            attributes.add(Double.toString(jsonObject.getDouble("challenge_rating")));
-            attributes.add(jsonObject.getString("name"));
-            attributes.add(jsonObject.getString("size"));
-            attributes.add(jsonObject.getString("type"));
-            attributes.add(Integer.toString(jsonObject.getInt("armor_class"))); //when displaying they'd have to be strings anyway
-            attributes.add(Integer.toString(jsonObject.getInt("hit_points")));
-            attributes.add(jsonObject.getString("hit_dice"));
-            attributes.add(jsonObject.getString("speed"));
+            attributes.add("Challenge rating: " + Double.toString(challengeRating));
+            attributes.add("Name: " + jsonObject.getString("name"));
+            attributes.add("Size: " + jsonObject.getString("size"));
+            attributes.add("Type: " + jsonObject.getString("type"));
+            attributes.add("Armor class: " + Integer.toString(jsonObject.getInt("armor_class")));
+            attributes.add("Hit point: " + Integer.toString(jsonObject.getInt("hit_points")));
+            attributes.add("Hit dice: " + jsonObject.getString("hit_dice"));
+            attributes.add("Speed: " + jsonObject.getString("speed"));
 
             // Uncommon attributes
             if(jsonObject.has("strength")){
-                attributes.add(Integer.toString(jsonObject.getInt("strength")));
+                attributes.add(""); //if these attributes are present, display empty line first  them
+
+                int strength = jsonObject.getInt("strength");
+                attributes.add("Strength: " + strength + " " + getBonus(strength));
             }
             if(jsonObject.has("dexterity")){
-                attributes.add(Integer.toString(jsonObject.getInt("dexterity")));
+                int dexterity = jsonObject.getInt("dexterity");
+                attributes.add("Dexterity: " + dexterity + " " + getBonus(dexterity));
             }
             if(jsonObject.has("constitution")){
-                attributes.add(Integer.toString(jsonObject.getInt("constitution")));
+                int constitution = jsonObject.getInt("constitution");
+                attributes.add("Dexterity: " + constitution + " " + getBonus(constitution));
             }
             if(jsonObject.has("intelligence")){
-                attributes.add(Integer.toString(jsonObject.getInt("intelligence")));
+                int intelligence = jsonObject.getInt("intelligence");
+                attributes.add("Intelligence: " + intelligence + " " + getBonus(intelligence));
             }
             if(jsonObject.has("wisdom")){
-                attributes.add(Integer.toString(jsonObject.getInt("wisdom")));
+                int wisdom = jsonObject.getInt("wisdom");
+                attributes.add("Wisdom: " + wisdom + " " + getBonus(wisdom));
             }
             if(jsonObject.has("charisma")){
-                attributes.add(Integer.toString(jsonObject.getInt("charisma")));
+                int charisma = jsonObject.getInt("charisma");
+                attributes.add("Intelligence: " + charisma + " " + getBonus(charisma));
             }
             if(jsonObject.has("languages")){
-                attributes.add(jsonObject.getString("languages"));
+                attributes.add("Languages: " + jsonObject.getString("languages"));
             }
             if(jsonObject.has("senses")){
-                attributes.add(jsonObject.getString("senses"));
+                attributes.add("Senses: " + jsonObject.getString("senses"));
             }
             if(jsonObject.has("damage_vulnerabilities")){
-                attributes.add(jsonObject.getString("damage_vulnerabilities"));
+                attributes.add("Damage vulnerabilities: " + jsonObject.getString("damage_vulnerabilities"));
             }
             if(jsonObject.has("damage_resistances")){
-                attributes.add(jsonObject.getString("damage_resistances"));
+                attributes.add("Damage resistance: " + jsonObject.getString("damage_resistances"));
             }
             if(jsonObject.has("damage_immunities")){
-                attributes.add(jsonObject.getString("damage_immunities"));
+                attributes.add("Damage immunities: " + jsonObject.getString("damage_immunities"));
             }
             if(jsonObject.has("subtype")){
-                attributes.add(jsonObject.getString("subtype"));
+                attributes.add("Subtype: " + jsonObject.getString("subtype"));
             }
             if(jsonObject.has("alignment")){
-                attributes.add(jsonObject.getString("alignment"));
+                attributes.add("Alignment: " + jsonObject.getString("alignment"));
             }
             if(jsonObject.has("stealth")){
-                attributes.add(Integer.toString(jsonObject.getInt("stealth")));
+                attributes.add("Stealth: " + Integer.toString(jsonObject.getInt("stealth")));
             }
 
 
@@ -200,20 +189,8 @@ public class Monster {
         return bonus;
     }
 
-
-
-    // Gets the attribute stats of the monster
-    // This might need change
     public ArrayList<String> getAttributes() {
         return attributes;
-        /*
-        System.out.println("Strength: " + strength + " " + getBonus(strength));
-        System.out.println("Dexterity: " + dexterity + " " + getBonus(dexterity));
-        System.out.println("Constitution: " + constitution + " " + getBonus(constitution));
-        System.out.println("Intelligence: " + intelligence + " " + getBonus(intelligence));
-        System.out.println("Wisdom: " + wisdom + " " + getBonus(wisdom));
-        System.out.println("Charisma: " + charisma + " " + getBonus(charisma));
-        */
     }
 
     public ArrayList<String> getSavingThrows() {
@@ -224,7 +201,7 @@ public class Monster {
     public int getXp() throws NullPointerException {
         try {
             int xp = 0;
-            switch (attributes.get(0)) { //challenge rating
+            switch (Double.toString(challengeRating)) {
                 case "0.0":
                     xp = 10;
                     break;
