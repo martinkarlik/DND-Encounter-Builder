@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class MonsterGUI extends JFrame {
     private JLabel numberOfMonstersL, monsterNameL, describtionL, acL, hpL, speedL, strengthL, dexterityL,
-            constitutionL, intelligenceL, wisdomL, charismaL, otherInfoL, actionsL;
+            constitutionL, intelligenceL, wisdomL, charismaL, savingThrowsL, otherInfoL, monsterActionsL, accuracyL;
 
     private JLabel
             STR = new JLabel("STR"),
@@ -17,7 +17,7 @@ public class MonsterGUI extends JFrame {
             WIS = new JLabel("WIS"),
             CHA = new JLabel("CHA");
 
-    public MonsterGUI(int numberOfMonsters, String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> otherInfo, ArrayList<String> savingThrows, ArrayList<String> monsterAction, float accuracy) throws IOException {
+    public MonsterGUI(int numberOfMonsters, String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> savingThrows, ArrayList<String> otherInfo, ArrayList<String> monsterActions, float accuracy) throws IOException {
 
         JFrame frame = new JFrame("Monster encounter");
 
@@ -33,7 +33,10 @@ public class MonsterGUI extends JFrame {
         intelligenceL.setText(attributes[3]);
         wisdomL.setText(attributes[4]);
         charismaL.setText(attributes[5]);
+        savingThrowsL.setText(savingThrows.toString());
         otherInfoL.setText(otherInfo.toString());
+        monsterActionsL.setText(monsterActions.toString());
+        accuracyL.setText(Float.toString(accuracy));
 
 
         // Sets the color of the Text
@@ -48,7 +51,7 @@ public class MonsterGUI extends JFrame {
         wisdomL.setForeground(Color.RED);
         charismaL.setForeground(Color.RED);
         otherInfoL.setForeground(Color.RED);
-        actionsL.setForeground(Color.RED);
+        monsterActionsL.setForeground(Color.RED);
 
         setTitle("Monster Encounter");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -163,8 +163,8 @@ public class GUI extends JFrame {
                                                     chosenMonster.getDescription(),
                                                     chosenMonster.getGeneralInfo(),
                                                     chosenMonster.getAttributes(),
-                                                    chosenMonster.getOtherInfo(),
                                                     chosenMonster.getSavingThrows(),
+                                                    chosenMonster.getOtherInfo(),
                                                     chosenMonster.getMonsterActions(),
                                                     accuracy);
 

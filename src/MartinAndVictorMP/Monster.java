@@ -61,7 +61,7 @@ public class Monster {
             }
 
             generalInfo[0] = "Armor class: " + (jsonObject.getInt("armor_class"));
-            generalInfo[1] = "Hit points: " + (jsonObject.getInt("hit_points")) + " (" + jsonObject.getString("hit_dice" + ") ");
+            generalInfo[1] = "Hit points: " + (jsonObject.getInt("hit_points")) + " (" + jsonObject.getString("hit_dice" ) + ")";
             generalInfo[2] = "Speed: " + jsonObject.getString("speed");
 
 
