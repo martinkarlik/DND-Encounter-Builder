@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MonsterGUI extends JFrame {
-    private JLabel monsterName, type, allignment, ac, hp, speed, strength, dexterity,
+    private JLabel monsterName, type, alignment, ac, hp, speed, strength, dexterity,
             constitution, intelligence, wisdom, charisma, skills, senses, languages, challeng, actions;
 
     private JLabel
@@ -20,11 +20,17 @@ public class MonsterGUI extends JFrame {
             WIS = new JLabel("WIS"),
             CHA = new JLabel("CHA");
 
-    public MonsterGUI(String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> otherInfo, ArrayList<String> monsterActions) throws IOException {
+    private ArrayList<JLabel> labels = new ArrayList<JLabel>();
 
+    public MonsterGUI(/*String name, String description, String[] generalInfo, String[] attributes,
+                      ArrayList<String> otherInfo, ArrayList<String> savingThrows, ArrayList<String> monsterActions,
+                      float accuracy, int numberOfMonsters*/) throws IOException {
+
+        System.out.println("here");
         JFrame frame = new JFrame("Monster encounter");
 
         // Sets the color of the Text
+        /*
         monsterName.setForeground(Color.RED);
         ac.setForeground(Color.RED);
         hp.setForeground(Color.RED);
@@ -39,9 +45,12 @@ public class MonsterGUI extends JFrame {
         languages.setForeground(Color.RED);
         challeng.setForeground(Color.RED);
         actions.setForeground(Color.RED);
+        */
 
         setTitle("Monster Encounter");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,10 +58,14 @@ public class MonsterGUI extends JFrame {
         layout.setAutoCreateContainerGaps(true);
         layout.setAutoCreateGaps(true);
 
+
+
+
+
         setSize(400,400);
         setVisible(true);
 
-        setContentPane(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Image.png")));
+        setContentPane(new JLabel(new ImageIcon("Images/Image.png")));
         setSize(399,399);
         setSize(400,400);
 

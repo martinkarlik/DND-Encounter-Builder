@@ -28,8 +28,8 @@ public class GUI extends JFrame {
     public GUI() {
         // To make sure that the user can only input ints and the minimum is 1
         formatter.setValueClass(Integer.class);
-        formatter.setMinimum(0);
-        formatter.setMaximum(100);
+        formatter.setMinimum(1);
+        formatter.setMaximum(20);
         formatter.setAllowsInvalid(true);
         JFormattedTextField minMonstersT = new JFormattedTextField(formatter);
         JFormattedTextField maxMonstersT = new JFormattedTextField(formatter);
@@ -55,7 +55,7 @@ public class GUI extends JFrame {
 
         buildEncounter.setPreferredSize(new Dimension(400, 100));*/
 
-        setResizable(false);
+        //setResizable(false);
 
         String[] difficulties = {"Easy", "Medium", "Hard", "Deadly"};
         JComboBox difficultyBox = new JComboBox(difficulties);
@@ -63,7 +63,7 @@ public class GUI extends JFrame {
 
         setTitle("D&D Encounter Builder");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Image.png")));
+        setContentPane(new JLabel(new ImageIcon("/Images/Image.png")));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,18 +158,18 @@ public class GUI extends JFrame {
                         int numberOfMonsters = encounterBuilder.getEncounter().getNumberOfMonsters();
                         float accuracy = encounterBuilder.getEncounter().getAccuracy();
 
-                        /*
-                        monsterGUI = new MonsterGUI(chosenMonster.getName(),
-                                                    chosenMonster.getDescription(),
-                                                    chosenMonster.getGeneralInfo(),
-                                                    chosenMonster.getAttributes(),
-                                                    chosenMonster.getOtherInfo(),
-                                                    chosenMonster.getSavingThrows(),
-                                                    chosenMonster.getMonsterActions(),
-                                                    accuracy,
-                                                    numberOfMonsters);
 
-                         */
+                        //new GUI();
+
+                        new MonsterGUI(/*chosenMonster.getName(),
+                                        chosenMonster.getDescription(),
+                                        chosenMonster.getGeneralInfo(),
+                                        chosenMonster.getAttributes(),
+                                        chosenMonster.getOtherInfo(),
+                                        chosenMonster.getSavingThrows(),
+                                        chosenMonster.getMonsterActions(),
+                                        accuracy,
+                                        numberOfMonsters*/);
 
 
                     } catch (InterruptedException | IOException ex) {
