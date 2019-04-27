@@ -149,28 +149,29 @@ public class GUI extends JFrame {
                             String.valueOf(difficultyBox.getSelectedItem()).toLowerCase()
                     ));
 
-                    /*
-                    if (monsterGUI == null) { delete current monsterGUI if creating a new one.. currently always deletes the new GUI :{
-                        monsterGUI.dispose();
-                    }
-                    */
-
                     encounterBuilder.start();
 
 
                     try {
                         encounterBuilder.join();
 
-                        monsterGUI = new MonsterGUI(name, description, generalInfo, attributes, actions);
+                        Monster chosenMonster = encounterBuilder.getEncounter().getMonster();
+                        int numberOfMonsters = encounterBuilder.getEncounter().getNumberOfMonsters();
+                        float accuracy = encounterBuilder.getEncounter().getAccuracy();
 
                         /*
-                        name
+                        monsterGUI = new MonsterGUI(chosenMonster.getName(),
+                                                    chosenMonster.getDescription(),
+                                                    chosenMonster.getGeneralInfo(),
+                                                    chosenMonster.getAttributes(),
+                                                    chosenMonster.getOtherInfo(),
+                                                    chosenMonster.getSavingThrows(),
+                                                    chosenMonster.getMonsterActions(),
+                                                    accuracy,
+                                                    numberOfMonsters);
 
+                         */
 
-                        */
-
-                        ArrayList<String> attributes = encounterBuilder.getEncounter().getMonster().getAttributes();
-                        ArrayList<String> savingThrows = encounterBuilder.getEncounter().getMonster().getSavingThrows();
 
                     } catch (InterruptedException ex) {
                         ex.printStackTrace();

@@ -1,5 +1,6 @@
 package src.MartinAndVictorMP;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -13,17 +14,15 @@ import java.util.ArrayList;
 
 public class Monster {
 
-    private ArrayList<String> savingThrows = new ArrayList<>();
-    private ArrayList<String> attributes = new ArrayList<>();
     private double challengeRating;
 
     private String name;
     private String description;
     private String[] generalInfo = new String[3];
     private String[] attributes = new String[6];
-    private String[] otherInfo = new
-
-
+    private ArrayList<String> savingThrows = new ArrayList<String>();
+    private ArrayList<String> otherInfo = new ArrayList<String>();
+    private ArrayList<String> monsterActions = new ArrayList<String>();
 
     public Monster(int monsterID) throws IOException, JSONException {
 
@@ -47,70 +46,52 @@ public class Monster {
 
             JSONObject jsonObject = new JSONObject(response.toString());
 
+            //organizing the data from jsonObject
+
             challengeRating = jsonObject.getDouble("challenge_rating");
             name = jsonObject.getString("name");
 
-            attributes.add("Size: " + jsonObject.getString("size"));
-            attributes.add("Type: " + jsonObject.getString("type"));
-            attributes.add("Armor class: " + Integer.toString(jsonObject.getInt("armor_class")));
-            attributes.add("Hit points: " + Integer.toString(jsonObject.getInt("hit_points")));
-            attributes.add("Hit dice: " + jsonObject.getString("hit_dice"));
-            attributes.add("Speed: " + jsonObject.getString("speed"));
+            description = jsonObject.getString("type");
+            if (jsonObject.has("subtype")) {
+                description += " (" + jsonObject.getString("subtype") + ")";
+            }
+            if (jsonObject.has("alignment")) {
+                description += ", " + jsonObject.getString("alignment");
+            }
 
-            // Uncommon attributes
+            generalInfo[0] = "Armor class: " + Integer.toString(jsonObject.getInt("armor_class"));
+            generalInfo[1] = "Hit points: " + Integer.toString(jsonObject.getInt("hit_points"));
+            generalInfo[2] = "Speed: " + jsonObject.getString("speed");
+
+
+            for (int i = 0; i < attributes.length; attributes[i++] = "");
+
+            //some attributes are optional for the monster and require checking whether the jsonObject has them
             if(jsonObject.has("strength")){
-                attributes.add(""); //if these attributes are present, display empty line first  them
-
                 int strength = jsonObject.getInt("strength");
-                attributes.add("Strength: " + strength + " " + getBonus(strength));
+                attributes[0] = "Strength: " + strength + "(" + getBonus(strength) + ")";
             }
             if(jsonObject.has("dexterity")){
                 int dexterity = jsonObject.getInt("dexterity");
-                attributes.add("Dexterity: " + dexterity + " " + getBonus(dexterity));
+                attributes[1] = "Dexterity: " + dexterity + "(" + getBonus(dexterity) + ")";
             }
             if(jsonObject.has("constitution")){
                 int constitution = jsonObject.getInt("constitution");
-                attributes.add("Dexterity: " + constitution + " " + getBonus(constitution));
+                attributes[2] = "Dexterity: " + constitution + "(" + getBonus(constitution) + ")";
             }
             if(jsonObject.has("intelligence")){
                 int intelligence = jsonObject.getInt("intelligence");
-                attributes.add("Intelligence: " + intelligence + " " + getBonus(intelligence));
+                attributes[3] = "Intelligence: " + intelligence + "(" + getBonus(intelligence) + ")";
             }
             if(jsonObject.has("wisdom")){
                 int wisdom = jsonObject.getInt("wisdom");
-                attributes.add("Wisdom: " + wisdom + " " + getBonus(wisdom));
+                attributes[4] = "Wisdom: " + wisdom + "(" + getBonus(wisdom) + ")";
             }
             if(jsonObject.has("charisma")){
                 int charisma = jsonObject.getInt("charisma");
-                attributes.add("Charisma: " + charisma + " " + getBonus(charisma));
-            }
-            if(jsonObject.has("languages")){
-                attributes.add("Languages: " + jsonObject.getString("languages"));
-            }
-            if(jsonObject.has("senses")){
-                attributes.add("Senses: " + jsonObject.getString("senses"));
-            }
-            if(jsonObject.has("damage_vulnerabilities")){
-                attributes.add("Damage vulnerabilities: " + jsonObject.getString("damage_vulnerabilities"));
-            }
-            if(jsonObject.has("damage_resistances")){
-                attributes.add("Damage resistance: " + jsonObject.getString("damage_resistances"));
-            }
-            if(jsonObject.has("damage_immunities")){
-                attributes.add("Damage immunities: " + jsonObject.getString("damage_immunities"));
-            }
-            if(jsonObject.has("subtype")){
-                attributes.add("Subtype: " + jsonObject.getString("subtype"));
-            }
-            if(jsonObject.has("alignment")){
-                attributes.add("Alignment: " + jsonObject.getString("alignment"));
-            }
-            if(jsonObject.has("stealth")){
-                attributes.add("Stealth: " + Integer.toString(jsonObject.getInt("stealth")));
+                attributes[5] = "Charisma: " + charisma + "(" + getBonus(charisma) + ")";
             }
 
-
-            // Saving throws
             if(jsonObject.has("strength_save")){
                 savingThrows.add("STR + " + jsonObject.getInt("strength_save"));
             }
@@ -129,14 +110,47 @@ public class Monster {
             if(jsonObject.has("charisma_save")){
                 savingThrows.add("CHA + " + jsonObject.getInt("charisma_save"));
             }
+
+
+            if (jsonObject.has("size")) {
+                otherInfo.add("Size: " + jsonObject.getString("size"));
+            }
+            if (jsonObject.has("hit_points")) {
+                otherInfo.add("Hit points: " + Integer.toString(jsonObject.getInt("hit_points")));
+            }
+            if (jsonObject.has("hit_dice")) {
+                otherInfo.add("Hit dice: " + jsonObject.getString("hit_dice"));
+            }
+            if(jsonObject.has("languages")){
+                otherInfo.add("Languages: " + jsonObject.getString("languages"));
+            }
+            if(jsonObject.has("senses")){
+                otherInfo.add("Senses: " + jsonObject.getString("senses"));
+            }
+            if(jsonObject.has("damage_vulnerabilities")){
+                otherInfo.add("Damage vulnerabilities: " + jsonObject.getString("damage_vulnerabilities"));
+            }
+            if(jsonObject.has("damage_resistances")){
+                otherInfo.add("Damage resistance: " + jsonObject.getString("damage_resistances"));
+            }
+            if(jsonObject.has("damage_immunities")){
+                otherInfo.add("Damage immunities: " + jsonObject.getString("damage_immunities"));
+            }
+            if(jsonObject.has("stealth")){
+                otherInfo.add("Stealth: " + Integer.toString(jsonObject.getInt("stealth")));
+            }
+
+            if (jsonObject.has("actions")) {
+                JSONArray actions = jsonObject.getJSONArray("actions");
+                for (int i = 0; i < actions.length(); i++) {
+                    JSONObject action = (JSONObject) actions.get(i);
+                    //not every monster has actions, but every action has name and description, so no need to check
+                    monsterActions.add(action.getString("name") + ": " + action.getString("desc"));
+                }
+            }
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    // Calculates the number bonus from the stats
     private String getBonus(int attribute){
         String bonus;
         switch (attribute){
@@ -195,13 +209,36 @@ public class Monster {
         return bonus;
     }
 
-    public ArrayList<String> getAttributes() {
-        return attributes;
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String[] getGeneralInfo() {
+        return generalInfo;
+    }
+
+    public ArrayList<String> getOtherInfo() {
+        return otherInfo;
     }
 
     public ArrayList<String> getSavingThrows() {
         return savingThrows;
     }
+
+    public ArrayList<String> getMonsterActions() {
+        return monsterActions;
+    }
+
+    public String[] getAttributes() {
+        return attributes;
+    }
+
 
     // Used to calculate the difficulty of the battle
     public int getXp() throws NullPointerException {
