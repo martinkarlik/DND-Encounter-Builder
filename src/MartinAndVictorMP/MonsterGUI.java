@@ -1,16 +1,13 @@
 package src.MartinAndVictorMP;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class MonsterGUI extends JFrame {
-    private JLabel monsterName, type, alignment, ac, hp, speed, strength, dexterity,
-            constitution, intelligence, wisdom, charisma, skills, senses, languages, challeng, actions;
+    private JLabel numberOfMonstersL, monsterNameL, describtionL, acL, hpL, speedL, strengthL, dexterityL,
+            constitutionL, intelligenceL, wisdomL, charismaL, otherInfoL, actionsL;
 
     private JLabel
             STR = new JLabel("STR"),
@@ -20,7 +17,7 @@ public class MonsterGUI extends JFrame {
             WIS = new JLabel("WIS"),
             CHA = new JLabel("CHA");
 
-    private ArrayList<JLabel> labels = new ArrayList<JLabel>();
+    public MonsterGUI(int numberOfMonsters, String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> otherInfo, ArrayList<String> savingThrows, ArrayList<String> monsterAction, float accuracy) throws IOException {
 
     public MonsterGUI(/*String name, String description, String[] generalInfo, String[] attributes,
                       ArrayList<String> otherInfo, ArrayList<String> savingThrows, ArrayList<String> monsterActions,
@@ -29,38 +26,40 @@ public class MonsterGUI extends JFrame {
         System.out.println("here");
         JFrame frame = new JFrame("Monster encounter");
 
+        numberOfMonstersL.setText(Integer.toString(numberOfMonsters));
+        monsterNameL.setText(name);
+        describtionL.setText(description);
+        acL.setText(generalInfo[0]);
+        hpL.setText(generalInfo[1]);
+        speedL.setText(generalInfo[2]);
+        strengthL.setText(attributes[0]);
+        dexterityL.setText(attributes[1]);
+        constitutionL.setText(attributes[2]);
+        intelligenceL.setText(attributes[3]);
+        wisdomL.setText(attributes[4]);
+        charismaL.setText(attributes[5]);
+        otherInfoL.setText(otherInfo.toString());
+
+
         // Sets the color of the Text
-        /*
-        monsterName.setForeground(Color.RED);
-        ac.setForeground(Color.RED);
-        hp.setForeground(Color.RED);
-        speed.setForeground(Color.RED);
-        strength.setForeground(Color.RED);
-        dexterity.setForeground(Color.RED);
-        constitution.setForeground(Color.RED);
-        intelligence.setForeground(Color.RED);
-        wisdom.setForeground(Color.RED);
-        charisma.setForeground(Color.RED);
-        skills.setForeground(Color.RED);
-        languages.setForeground(Color.RED);
-        challeng.setForeground(Color.RED);
-        actions.setForeground(Color.RED);
-        */
+        monsterNameL.setForeground(Color.RED);
+        acL.setForeground(Color.RED);
+        hpL.setForeground(Color.RED);
+        speedL.setForeground(Color.RED);
+        strengthL.setForeground(Color.RED);
+        dexterityL.setForeground(Color.RED);
+        constitutionL.setForeground(Color.RED);
+        intelligenceL.setForeground(Color.RED);
+        wisdomL.setForeground(Color.RED);
+        charismaL.setForeground(Color.RED);
+        otherInfoL.setForeground(Color.RED);
+        actionsL.setForeground(Color.RED);
 
         setTitle("Monster Encounter");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
-
-        GroupLayout layout = new GroupLayout(getContentPane());
+        BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
         getContentPane().setLayout(layout);
-
-        layout.setAutoCreateContainerGaps(true);
-        layout.setAutoCreateGaps(true);
-
-
-
-
 
         setSize(400,400);
         setVisible(true);
