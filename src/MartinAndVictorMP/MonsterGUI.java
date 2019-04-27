@@ -1,7 +1,10 @@
 package src.MartinAndVictorMP;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -17,10 +20,9 @@ public class MonsterGUI extends JFrame {
             WIS = new JLabel("WIS"),
             CHA = new JLabel("CHA");
 
-    public MonsterGUI(String name, String description, String[] generalInfo, String[] attributes, String[] otherInfo, ArrayList<String> monsterActions) throws IOException {
+    public MonsterGUI(String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> otherInfo, ArrayList<String> monsterActions) throws IOException {
 
-        JFrame jFrame = new JFrame();
-        jFrame.getContentPane().add(new JPanelWithBackground("Image.png"));
+        JFrame frame = new JFrame("Monster encounter");
 
         // Sets the color of the Text
         monsterName.setForeground(Color.RED);
@@ -44,12 +46,15 @@ public class MonsterGUI extends JFrame {
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
 
-
         layout.setAutoCreateContainerGaps(true);
         layout.setAutoCreateGaps(true);
 
-        pack();
+        setSize(400,400);
         setVisible(true);
+
+        setContentPane(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Image.png")));
+        setSize(399,399);
+        setSize(400,400);
 
     }
 
