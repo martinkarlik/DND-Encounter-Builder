@@ -1,9 +1,7 @@
 package src.MartinAndVictorMP;
 
-import org.json.JSONException;
 import javax.swing.*;
 import javax.swing.text.NumberFormatter;
-import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -24,7 +22,7 @@ public class GUI extends JFrame {
     NumberFormat format = NumberFormat.getInstance();
     NumberFormatter formatter = new NumberFormatter(format);
 
-    GUI monsterGUI;
+    MonsterGUI monsterGUI;
 
 
     public GUI() {
@@ -40,7 +38,7 @@ public class GUI extends JFrame {
 
         monsterGUI = null;
 
-        numOfPlayersL.setPreferredSize(new Dimension(100, 30));
+        /*numOfPlayersL.setPreferredSize(new Dimension(100, 30));
         levelOfPlayersL.setPreferredSize(new Dimension(100, 30));
         minMonstersL.setPreferredSize(new Dimension(100, 30));
         maxMonstersL.setPreferredSize(new Dimension(100, 30));
@@ -55,7 +53,7 @@ public class GUI extends JFrame {
         chosenMonster.setPreferredSize(new Dimension(200, 50));
         stats.setPreferredSize(new Dimension(200, 50));
 
-        buildEncounter.setPreferredSize(new Dimension(400, 100));
+        buildEncounter.setPreferredSize(new Dimension(400, 100));*/
 
         setResizable(false);
 
@@ -65,6 +63,7 @@ public class GUI extends JFrame {
 
         setTitle("D&D Encounter Builder");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setContentPane(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Image.png")));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,7 +121,7 @@ public class GUI extends JFrame {
                                 .addComponent(stats))
                                 .addComponent(buildEncounter));
 
-        pack();
+        setSize(500,150);
         setVisible(true);
 
 
@@ -161,7 +160,8 @@ public class GUI extends JFrame {
                     try {
                         encounterBuilder.join();
 
-                        monsterGUI = new MonsterGUI(name, description, generalInfo, attributes, actions);
+                        //TODO Fix this call, and make the Monster GUI
+                        //monsterGUI = new MonsterGUI();
 
                         /*
                         name
@@ -172,12 +172,13 @@ public class GUI extends JFrame {
                         ArrayList<String> attributes = encounterBuilder.getEncounter().getMonster().getAttributes();
                         ArrayList<String> savingThrows = encounterBuilder.getEncounter().getMonster().getSavingThrows();
 
-                    } catch (InterruptedException ex) {
+                    } catch (InterruptedException | IOException ex) {
                         ex.printStackTrace();
                     }
                 }
             }
         });
+
     }
 }
 
