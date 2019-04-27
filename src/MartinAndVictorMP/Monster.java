@@ -18,7 +18,7 @@ public class Monster {
 
     private String name;
     private String description;
-    private String[] generalInfo = new String[3];
+    private String[] generalInfo = new String[4];
     private String[] attributes = new String[6];
     private ArrayList<String> savingThrows = new ArrayList<String>();
     private ArrayList<String> otherInfo = new ArrayList<String>();
@@ -60,8 +60,8 @@ public class Monster {
                 description += ", " + jsonObject.getString("alignment");
             }
 
-            generalInfo[0] = "Armor class: " + Integer.toString(jsonObject.getInt("armor_class"));
-            generalInfo[1] = "Hit points: " + Integer.toString(jsonObject.getInt("hit_points"));
+            generalInfo[0] = "Armor class: " + (jsonObject.getInt("armor_class"));
+            generalInfo[1] = "Hit points: " + (jsonObject.getInt("hit_points")) + " (" + jsonObject.getString("hit_dice" + ") ");
             generalInfo[2] = "Speed: " + jsonObject.getString("speed");
 
 
@@ -112,15 +112,9 @@ public class Monster {
                 savingThrows.add("CHA + " + jsonObject.getInt("charisma_save"));
             }
 
-
+            otherInfo.add(Double.toString(challengeRating));
             if (jsonObject.has("size")) {
                 otherInfo.add("Size: " + jsonObject.getString("size"));
-            }
-            if (jsonObject.has("hit_points")) {
-                otherInfo.add("Hit points: " + Integer.toString(jsonObject.getInt("hit_points")));
-            }
-            if (jsonObject.has("hit_dice")) {
-                otherInfo.add("Hit dice: " + jsonObject.getString("hit_dice"));
             }
             if(jsonObject.has("languages")){
                 otherInfo.add("Languages: " + jsonObject.getString("languages"));
@@ -138,7 +132,7 @@ public class Monster {
                 otherInfo.add("Damage immunities: " + jsonObject.getString("damage_immunities"));
             }
             if(jsonObject.has("stealth")){
-                otherInfo.add("Stealth: " + Integer.toString(jsonObject.getInt("stealth")));
+                otherInfo.add("Stealth: " + (jsonObject.getInt("stealth")));
             }
 
             if (jsonObject.has("actions")) {

@@ -158,18 +158,16 @@ public class GUI extends JFrame {
                         int numberOfMonsters = encounterBuilder.getEncounter().getNumberOfMonsters();
                         float accuracy = encounterBuilder.getEncounter().getAccuracy();
 
-                        /*
-                        monsterGUI = new MonsterGUI(chosenMonster.getName(),
+                        monsterGUI = new MonsterGUI(numberOfMonsters,
+                                                    chosenMonster.getName(),
                                                     chosenMonster.getDescription(),
                                                     chosenMonster.getGeneralInfo(),
                                                     chosenMonster.getAttributes(),
                                                     chosenMonster.getOtherInfo(),
                                                     chosenMonster.getSavingThrows(),
                                                     chosenMonster.getMonsterActions(),
-                                                    accuracy,
-                                                    numberOfMonsters);
+                                                    accuracy);
 
-                         */
 
 
                     } catch (InterruptedException | IOException ex) {
