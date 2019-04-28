@@ -2,6 +2,7 @@ package src.MartinAndVictorMP;
 
 import javax.swing.*;
 import javax.swing.text.NumberFormatter;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -38,32 +39,17 @@ public class GUI extends JFrame {
 
         monsterGUI = null;
 
-        /*numOfPlayersL.setPreferredSize(new Dimension(100, 30));
-        levelOfPlayersL.setPreferredSize(new Dimension(100, 30));
-        minMonstersL.setPreferredSize(new Dimension(100, 30));
-        maxMonstersL.setPreferredSize(new Dimension(100, 30));
-        difficultyL.setPreferredSize(new Dimension(100, 30));
-        minMonstersL.setPreferredSize(new Dimension(100, 30));
-
-        numOfPlayersT.setPreferredSize(new Dimension(100, 30));
-        levelOfPlayersT.setPreferredSize(new Dimension(100, 30));
-        minMonstersT.setPreferredSize(new Dimension(100, 30));
-        maxMonstersT.setPreferredSize(new Dimension(100, 30));
-        minMonstersT.setPreferredSize(new Dimension(100, 30));
-        chosenMonster.setPreferredSize(new Dimension(200, 50));
-        stats.setPreferredSize(new Dimension(200, 50));
-
-        buildEncounter.setPreferredSize(new Dimension(400, 100));*/
-
-        //setResizable(false);
-
         String[] difficulties = {"Easy", "Medium", "Hard", "Deadly"};
         JComboBox difficultyBox = new JComboBox(difficulties);
         difficultyBox.setSelectedIndex(1);
 
         setTitle("D&D Encounter Builder");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(new JLabel(new ImageIcon("/Images/Image.png")));
+        setContentPane(new JLabel(new ImageIcon("src/Images/image.png")));
+
+        System.out.println(getWidth());
+        System.out.println(getHeight());
+        setSize(new Dimension(getWidth(), getHeight()));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,16 +115,18 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if(Integer.parseInt(minMonstersT.getText()) > Integer.parseInt(maxMonstersT.getText())){
-                    String tempMax = maxMonstersT.getText();
-                    maxMonstersT.setText(minMonstersT.getText());
-                    minMonstersT.setText(tempMax);
-                }
+
 
                 if (minMonstersT.getText().length() > 0 &&
                         maxMonstersT.getText().length() > 0 &&
                         numOfPlayersT.getText().length() > 0 &&
                         levelOfPlayersT.getText().length() > 0) {
+
+                    if(Integer.parseInt(minMonstersT.getText()) > Integer.parseInt(maxMonstersT.getText())){ //if min > max, switch
+                        String tempMax = maxMonstersT.getText();
+                        maxMonstersT.setText(minMonstersT.getText());
+                        minMonstersT.setText(tempMax);
+                    }
 
                     EncounterBuilder encounterBuilder = new EncounterBuilder(new Encounter(
                             Integer.parseInt(numOfPlayersT.getText()),

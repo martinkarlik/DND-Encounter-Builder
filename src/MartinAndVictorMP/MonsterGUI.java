@@ -15,6 +15,9 @@ public class MonsterGUI extends JFrame {
             WIS = new JLabel("WIS"),
             CHA = new JLabel("CHA");
 
+    private LinePanel line;
+    //private BackgroundPanel background;
+
     public MonsterGUI(int numberOfMonsters, String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> savingThrows, ArrayList<String> otherInfo, ArrayList<String> monsterActions, float accuracy) throws IOException {
 
         JFrame frame = new JFrame("Monster encounter");
@@ -24,13 +27,16 @@ public class MonsterGUI extends JFrame {
         JPanel panel = new JPanel();
         frame.getContentPane().add(panel);
 
-        //setContentPane(new JLabel(new ImageIcon("../Images/Image.png")));
+        //setContentPane(new JLabel(new ImageIcon("src/Images/image.png")));
+        panel.add(new JLabel(new ImageIcon("src/Images/image.png")));
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         panel.add(new JLabel(name)).setForeground(Color.RED);
         panel.add(new JLabel(description));
-        panel.add(new JLabel(""));
+
+        line = new LinePanel();
+        panel.add(line);
 
 
         for (int i = 0; i < generalInfo.length; i++) {
@@ -63,7 +69,7 @@ public class MonsterGUI extends JFrame {
         frame.setVisible(true);
 
 
-        setContentPane(new JLabel(new ImageIcon("../Images/Image.png")));
+        //setContentPane(new JLabel(new ImageIcon("../Images/Image.png")));
         //setSize(399,399);
         //setSize(400,400);
 
