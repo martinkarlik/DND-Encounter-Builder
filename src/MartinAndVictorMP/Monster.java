@@ -18,7 +18,7 @@ public class Monster {
 
     private String name;
     private String description;
-    private String[] generalInfo = new String[4];
+    private String[] generalInfo = new String[3];
     private String[] attributes = new String[6];
     private ArrayList<String> savingThrows = new ArrayList<String>();
     private ArrayList<String> otherInfo = new ArrayList<String>();
