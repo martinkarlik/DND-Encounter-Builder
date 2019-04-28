@@ -7,14 +7,6 @@ import java.util.ArrayList;
 
 public class MonsterGUI extends JFrame {
 
-    private JLabel
-            STR = new JLabel("STR"),
-            DEX = new JLabel("DEX"),
-            CON = new JLabel("CON"),
-            INT = new JLabel("INT"),
-            WIS = new JLabel("WIS"),
-            CHA = new JLabel("CHA");
-
     private Font font = new Font("Arial", Font.BOLD, 26);
     private Font fontMedium = new Font("Arial", Font.ITALIC, 20);
     private Font fontSmall = new Font("Arial", Font.PLAIN, 16);
