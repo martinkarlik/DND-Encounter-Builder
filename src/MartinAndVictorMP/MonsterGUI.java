@@ -16,6 +16,7 @@ public class MonsterGUI extends JFrame {
             CHA = new JLabel("CHA");
 
     private Font font = new Font("Arial", Font.BOLD, 26);
+    private Font fontMedium = new Font("Arial", Font.ITALIC, 20);
     private Font fontSmall = new Font("Arial", Font.PLAIN, 16);
 
     /**
@@ -76,7 +77,9 @@ public class MonsterGUI extends JFrame {
                 savingThrowsL.setForeground(Color.RED);
         }
 
-        panel.add(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png")));
+        if(!savingThrows.isEmpty()){
+            panel.add(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png")));
+        }
 
         for (String e: otherInfo) {
                 panel.add(otherInfoL = new JLabel(e));
@@ -85,6 +88,7 @@ public class MonsterGUI extends JFrame {
 
         panel.add(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png")));
 
+        panel.add(new JLabel("Actions: ")).setFont(fontMedium);
         for (String e: monsterActions) {
             panel.add(actionsL = new JLabel(e));
             actionsL.setFont(fontSmall);
