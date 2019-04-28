@@ -15,7 +15,8 @@ public class MonsterGUI extends JFrame {
             WIS = new JLabel("WIS"),
             CHA = new JLabel("CHA");
 
-    JLabel picLabel = new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png"));
+    private Font font = new Font("Arial", Font.BOLD, 20);
+    private Font fontSmall = new Font("Arial", Font.PLAIN, 16);
 
     /**
      * @param numberOfMonsters
@@ -33,42 +34,41 @@ public class MonsterGUI extends JFrame {
 
         JFrame frame = new JFrame("Monster encounter");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        setContentPane(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Image.png")));
 
         JPanel panel = new JPanel();
         frame.getContentPane().add(panel);
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        panel.add(new JLabel(numberOfMonsters + " X " + name)).setForeground(Color.RED);
+        setContentPane(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Image.png")));
+
+        panel.add(new JLabel(" " + numberOfMonsters + " X " + name)).setForeground(Color.RED);
         panel.add(new JLabel(description));
 
-        panel.add(picLabel);
+        // Adding the red arrow to split the UI
+        panel.add(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png")));
 
 
         for (int i = 0; i < generalInfo.length; i++) {
             panel.add(new JLabel(generalInfo[i])).setForeground(Color.RED);
         }
 
-        panel.add(picLabel);
+        panel.add(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png")));
 
         for (int i = 0; i < attributes.length; i++) {
             panel.add(new JLabel(attributes[i]));
         }
 
-        panel.add(picLabel);
+        panel.add(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png")));
 
         for (String e: savingThrows) {
-            panel.add(new JLabel("Saving throw " + e));
+                panel.add(new JLabel("Saving throw " + e));
         }
-
-        panel.add(picLabel);
-
         for (String e: otherInfo) {
-            panel.add(new JLabel(e));
+                panel.add(new JLabel(e));
         }
 
-        panel.add(picLabel);
+        panel.add(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png")));
 
         for (String e: monsterActions) {
             panel.add(new JLabel(e));
