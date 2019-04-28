@@ -53,7 +53,7 @@ public class Monster {
             name = jsonObject.getString("name");
 
             description = jsonObject.getString("type");
-            if (jsonObject.has("subtype")) {
+            if (jsonObject.has("subtype") && jsonObject.getString("subtype").length() > 0) { //sometimes the subtype doesn't exist, sometimes it's an empty string..
                 description += " (" + jsonObject.getString("subtype") + ")";
             }
             if (jsonObject.has("alignment")) {
@@ -112,7 +112,7 @@ public class Monster {
                 savingThrows.add("CHA + " + jsonObject.getInt("charisma_save"));
             }
 
-            otherInfo.add(Double.toString(challengeRating));
+            otherInfo.add("Challenge rating: " + Double.toString(challengeRating));
             if (jsonObject.has("size")) {
                 otherInfo.add("Size: " + jsonObject.getString("size"));
             }

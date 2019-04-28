@@ -363,7 +363,7 @@ public class Encounter {
         return newOrder;
     }
 
-    public synchronized void buildEncounter() throws IOException, JSONException {
+    public /*synchronized*/ void buildEncounter() throws IOException, JSONException {
 
         int[] order = new int[325];
         for (int i = 0; i < order.length; order[i] = ++i); // {1, 2, ..., 325}
@@ -371,7 +371,7 @@ public class Encounter {
 
         /*
         To ensure randomness, we'll start looking at the monsters in a random order and return monster as soon as we find an acceptable match.
-        Of course we could find the most accurate match every time, but
+        We could find the most accurate match every time, but
             a, that would be computationally much more expensive, since we'd have to look at ALL the monsters and
             b, certain user inputs would yield repetitive outcomes (same monster all the time - not what we want)
         */
@@ -384,11 +384,8 @@ public class Encounter {
             float tolerableError = ((float) index / (float) shuffledOrder.length); //tolerable error is increasing linearly with every unsuccessful iteration (i.e. when monster does not suit the conditions)
             for (int numOfMonsters = minMonsters; numOfMonsters <= maxMonsters; numOfMonsters++) { //find the amount of monsters that suits (if any)
                 double monsterXp = tempMonster.getXp() * getEncounterMultiplier(numOfMonsters) * numOfMonsters; //calculate this encounter's xp
-                if (Math.abs(partyXpThreshold - monsterXp) < partyXpThreshold * tolerableError) { //is the encounter close enough with respect to the tolerable error?
+                if (Math.abs(partyXpThreshold - monsterXp) < partyXpThreshold * tolerableError) { //is the encounter accurate enough with respect to the tolerable error?
                     //if yes, we're done.. just return the found monster type, remember the number of monsters and whatever else we're interested in
-                    System.out.println("Monster XP " + monsterXp + " =? Party XP " + partyXpThreshold);
-                    System.out.println("Had to check " + index + " monsters.");
-                    System.out.println(numOfMonsters + "x " + tempMonster.getName());
 
                     setNumberOfMonsters(numOfMonsters);
                     setMonster(tempMonster);
