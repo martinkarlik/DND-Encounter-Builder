@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="da2083f2-2877-4dc5-8c4b-b7f340633215" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MartinAndVictorMP/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MartinAndVictorMP/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/TheOne/out/production/DMMiniproject/out/" />
@@ -73,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+            <state relative-caret-position="223">
+              <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="160" column="57" selection-start-line="160" selection-start-column="57" selection-end-line="160" selection-end-column="57" />
+            <state relative-caret-position="805">
+              <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,8 +104,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/MartinAndVictorMP/Monster.java" />
-        <option value="$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java" />
         <option value="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" />
+        <option value="$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java" />
       </list>
     </option>
   </component>
@@ -303,20 +301,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java">
+    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+        <state relative-caret-position="805">
+          <caret line="169" lean-forward="true" selection-start-line="169" selection-end-line="169" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/GUI.java">
+    <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="160" column="57" selection-start-line="160" selection-start-column="57" selection-end-line="160" selection-end-column="57" />
+        <state relative-caret-position="223">
+          <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

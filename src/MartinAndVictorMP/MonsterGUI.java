@@ -17,6 +17,18 @@ public class MonsterGUI extends JFrame {
             WIS = new JLabel("WIS"),
             CHA = new JLabel("CHA");
 
+    /**
+     * @param numberOfMonsters
+     * @param name
+     * @param description
+     * @param generalInfo
+     * @param attributes
+     * @param savingThrows
+     * @param otherInfo
+     * @param monsterActions
+     * @param accuracy
+     * @throws IOException
+     */
     public MonsterGUI(int numberOfMonsters, String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> savingThrows, ArrayList<String> otherInfo, ArrayList<String> monsterActions, float accuracy) throws IOException {
 
         JFrame frame = new JFrame("Monster encounter");
