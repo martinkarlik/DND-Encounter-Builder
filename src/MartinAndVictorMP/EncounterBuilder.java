@@ -16,13 +16,6 @@ public class EncounterBuilder extends Thread {
         try {
             encounter.buildEncounter();
             Monster monster = encounter.getMonster();
-
-            if (monster != null) {
-                System.out.println(encounter.getNumberOfMonsters() + "x " + monster.getName());
-                System.out.println("Accuracy of the match: "+ encounter.getAccuracy()*100 + "%");
-            } else {
-                System.out.println("Monster not found.");
-            }
         } catch (IOException | JSONException ex) {
             ex.printStackTrace();
         }

@@ -26,10 +26,11 @@ public class Monster {
 
     public Monster(int monsterID) throws IOException, JSONException {
 
+        //each monster has its own url
+
         URL url = new URL("http://dnd5eapi.co/api/monsters/" + monsterID + "/");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
-
 
         BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         String inputLine;
@@ -147,63 +148,115 @@ public class Monster {
     }
 
     private String getBonus(int attribute){
-        String bonus;
         switch (attribute){
             case 1:
-                bonus = "-5";
-                break;
+                return "-5";
             case 2: case 3:
-                bonus = "-4";
-                break;
+                return "-4";
             case 4: case 5:
-                bonus = "-3";
-                break;
+                return "-3";
             case 6: case 7:
-                bonus = "-2";
-                break;
+                return "-2";
             case 8: case 9:
-                bonus = "-1";
-                break;
+                return "-1";
             case 10: case 11:
-                bonus = "0";
-                break;
+                return "+0";
             case 12: case 13:
-                bonus = "+1";
-                break;
+                return "+1";
             case 14: case 15:
-                bonus = "+2";
-                break;
+                return "+2";
             case 16: case 17:
-                bonus = "+3";
-                break;
+                return "+3";
             case 18: case 19:
-                bonus = "+4";
-                break;
+                return "+4";
             case 20: case 21:
-                bonus = "+5";
-                break;
+                return "+5";
             case 22: case 23:
-                bonus = "+6";
-                break;
+                return "+6";
             case 24: case 25:
-                bonus = "+7";
-                break;
+                return "+7";
             case 26: case 27:
-                bonus = "+8";
-                break;
+                return "+8";
             case 28: case 29:
-                bonus = "+9";
-                break;
+                return "+9";
             case 30:
-                bonus = "+10";
-                break;
+                return "+10";
             default:
-                bonus = "";
-                break;
+                return "";
         }
-        return bonus;
     }
 
+    // Used to calculate the difficulty of the battle
+    public int getXp() throws NullPointerException {
+        try {
+            switch (Double.toString(challengeRating)) {
+                case "0.0":
+                    return 10;
+                case "0.125":
+                    return 25;
+                case "0.25":
+                    return 50;
+                case "0.5":
+                    return 100;
+                case "1.0":
+                    return 200;
+                case "2.0":
+                    return 450;
+                case "3.0":
+                    return 700;
+                case "4.0":
+                    return 1100;
+                case "5.0":
+                    return 1800;
+                case "6.0":
+                    return 2300;
+                case "7.0":
+                    return 2900;
+                case "8.0":
+                    return 3900;
+                case "9.0":
+                    return 5000;
+                case "10.0":
+                    return 5900;
+                case "11.0":
+                    return 7200;
+                case "12.0":
+                    return 8400;
+                case "13.0":
+                    return 10000;
+                case "14.0":
+                    return 11500;
+                case "15.0":
+                    return 13000;
+                case "16.0":
+                    return 15000;
+                case "17.0":
+                    return 18000;
+                case "18.0":
+                    return 20000;
+                case "19.0":
+                    return 22000;
+                case "20.0":
+                    return 25000;
+                case "21.0":
+                    return 33000;
+                case "22.0":
+                    return 41000;
+                case "23.0":
+                    return 50000;
+                case "24.0":
+                    return 62000;
+                case "30.0":
+                    return 155000;
+                default:
+                    System.out.println("No xp set");
+                    return 0;
+            }
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            return 0;
+        }
+    }
 
 
     public String getName() {
@@ -235,106 +288,5 @@ public class Monster {
     }
 
 
-    // Used to calculate the difficulty of the battle
-    public int getXp() throws NullPointerException {
-        try {
-            int xp = 0;
-            switch (Double.toString(challengeRating)) {
-                case "0.0":
-                    xp = 10;
-                    break;
-                case "0.125":
-                    xp = 25;
-                    break;
-                case "0.25":
-                    xp = 50;
-                    break;
-                case "0.5":
-                    xp = 100;
-                    break;
-                case "1.0":
-                    xp = 200;
-                    break;
-                case "2.0":
-                    xp = 450;
-                    break;
-                case "3.0":
-                    xp = 700;
-                    break;
-                case "4.0":
-                    xp = 1100;
-                    break;
-                case "5.0":
-                    xp = 1800;
-                    break;
-                case "6.0":
-                    xp = 2300;
-                    break;
-                case "7.0":
-                    xp = 2900;
-                    break;
-                case "8.0":
-                    xp = 3900;
-                    break;
-                case "9.0":
-                    xp = 5000;
-                    break;
-                case "10.0":
-                    xp = 5900;
-                    break;
-                case "11.0":
-                    xp = 7200;
-                    break;
-                case "12.0":
-                    xp = 8400;
-                    break;
-                case "13.0":
-                    xp = 10000;
-                    break;
-                case "14.0":
-                    xp = 11500;
-                    break;
-                case "15.0":
-                    xp = 13000;
-                    break;
-                case "16.0":
-                    xp = 15000;
-                    break;
-                case "17.0":
-                    xp = 18000;
-                    break;
-                case "18.0":
-                    xp = 20000;
-                    break;
-                case "19.0":
-                    xp = 22000;
-                    break;
-                case "20.0":
-                    xp = 25000;
-                    break;
-                case "21.0":
-                    xp = 33000;
-                    break;
-                case "22.0":
-                    xp = 41000;
-                    break;
-                case "23.0":
-                    xp = 50000;
-                    break;
-                case "24.0":
-                    xp = 62000;
-                    break;
-                case "30.0":
-                    xp = 155000;
-                    break;
-                default:
-                    System.out.println("No xp set");
-                    break;
-            }
-            return xp;
-        } catch (NullPointerException e){
-            e.printStackTrace();
-            return 0;
-        }
-    }
+
 }

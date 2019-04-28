@@ -19,11 +19,6 @@ public class Encounter {
     private Monster monster;
     private float accuracy;
 
-    /*
-    The only reason why I changed static variables and functions to non-static, is cause Im more familiar with having it like this
-    and for me it's more flexible to work with.. to have individual encounter objects that represent individual encounters.
-    */
-
     Encounter(int numberOfPlayers_, int levelOfPlayers_, int minMonsters_, int maxMonsters_, String difficulty_) {
         numberOfPlayers = numberOfPlayers_;
         levelOfPlayers = levelOfPlayers_;
@@ -39,8 +34,8 @@ public class Encounter {
     }
 
 
-    public void setNumberOfMonsters(int monstersInEncounter_) {
-        numberOfMonsters = monstersInEncounter_;
+    public void setNumberOfMonsters(int numberOfMonsters) {
+        this.numberOfMonsters = numberOfMonsters;
     }
 
     public int getNumberOfMonsters() {
@@ -55,8 +50,8 @@ public class Encounter {
         return monster;
     }
 
-    public void setAccuracy(float accuracy_) {
-        accuracy = accuracy_;
+    public void setAccuracy(float accuracy) {
+        this.accuracy = accuracy;
     }
 
     public float getAccuracy() {
@@ -363,7 +358,7 @@ public class Encounter {
         return newOrder;
     }
 
-    public /*synchronized*/ void buildEncounter() throws IOException, JSONException {
+    public void buildEncounter() throws IOException, JSONException {
 
         int[] order = new int[325];
         for (int i = 0; i < order.length; order[i] = ++i); // {1, 2, ..., 325}
@@ -380,7 +375,7 @@ public class Encounter {
         monster = null;
 
         for (int index = 0; index < shuffledOrder.length; index++) {
-            tempMonster = new Monster(shuffledOrder[index]); //the next tempMonster will use the memory of current one and after the for loop, garbage collector will get rid of the memory leak anyway
+            tempMonster = new Monster(shuffledOrder[index]); //the next tempMonster will use the memory of current one
             float tolerableError = ((float) index / (float) shuffledOrder.length); //tolerable error is increasing linearly with every unsuccessful iteration (i.e. when monster does not suit the conditions)
             for (int numOfMonsters = minMonsters; numOfMonsters <= maxMonsters; numOfMonsters++) { //find the amount of monsters that suits (if any)
                 double monsterXp = tempMonster.getXp() * getEncounterMultiplier(numOfMonsters) * numOfMonsters; //calculate this encounter's xp
@@ -396,4 +391,7 @@ public class Encounter {
             }
         }
     }
+
+
+
 }

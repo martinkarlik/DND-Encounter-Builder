@@ -9,35 +9,32 @@ import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
-public class GUI extends JFrame {
-    private JLabel numOfPlayersL = new JLabel("Number of players:");
-    private JLabel levelOfPlayersL = new JLabel("Level of players:");
-    private JLabel minMonstersL = new JLabel("Min monsters:");
-    private JLabel maxMonstersL = new JLabel("Max monsters:");
+public class InitGUI extends JFrame {
+    private JLabel numOfPlayersL = new JLabel("Number of players (1-30):");
+    private JLabel levelOfPlayersL = new JLabel("Level of players (1-30):");
+    private JLabel minMonstersL = new JLabel("Min monsters (1-30):");
+    private JLabel maxMonstersL = new JLabel("Max monsters (1-30):");
     private JLabel difficultyL = new JLabel("Difficulty:");
     private JComboBox difficultyBox;
     private JButton buildEncounter = new JButton("Build Encounter");
-    private JLabel chosenMonster = new JLabel("");
-    private JLabel stats = new JLabel("");
+    private JLabel prompt = new JLabel("");
 
     NumberFormat format = NumberFormat.getInstance();
     NumberFormatter formatter = new NumberFormatter(format);
 
-    MonsterGUI monsterGUI;
 
+    public InitGUI() {
 
-    public GUI() {
-        // To make sure that the user can only input ints and the minimum is 1
+        //We need to make sure that the user inputs correct values
+
         formatter.setValueClass(Integer.class);
         formatter.setMinimum(1);
-        formatter.setMaximum(20);
+        formatter.setMaximum(30);
         formatter.setAllowsInvalid(true);
         JFormattedTextField minMonstersT = new JFormattedTextField(formatter);
         JFormattedTextField maxMonstersT = new JFormattedTextField(formatter);
         JFormattedTextField numOfPlayersT = new JFormattedTextField(formatter);
         JFormattedTextField levelOfPlayersT = new JFormattedTextField(formatter);
-
-        monsterGUI = null;
 
         String[] difficulties = {"Easy", "Medium", "Hard", "Deadly"};
         JComboBox difficultyBox = new JComboBox(difficulties);
@@ -46,10 +43,6 @@ public class GUI extends JFrame {
         setTitle("D&D Encounter Builder");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setContentPane(new JLabel(new ImageIcon("src/Images/image.png")));
-
-        System.out.println(getWidth());
-        System.out.println(getHeight());
-        setSize(new Dimension(getWidth(), getHeight()));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,13 +65,13 @@ public class GUI extends JFrame {
                                 .addComponent(levelOfPlayersT)
                                 .addComponent(maxMonstersL)
                                 .addComponent(maxMonstersT)
-                                .addComponent(chosenMonster)).addGroup(
+                                .addComponent(prompt)).addGroup(
                         layout.createParallelGroup(
                                 GroupLayout.Alignment.LEADING)
                                 .addComponent(difficultyL)
                                 .addComponent(difficultyBox)
                                 .addComponent(buildEncounter)
-                                .addComponent(stats)));
+                                .addComponent(prompt)));
 
         layout.setVerticalGroup(layout.createSequentialGroup()
                 .addGroup(
@@ -103,8 +96,7 @@ public class GUI extends JFrame {
                                 .addComponent(buildEncounter)).addGroup(
                         layout.createParallelGroup(
                                 GroupLayout.Alignment.BASELINE)
-                                .addComponent(chosenMonster)
-                                .addComponent(stats))
+                                .addComponent(prompt))
                                 .addComponent(buildEncounter));
 
         setSize(500,150);
@@ -115,8 +107,7 @@ public class GUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
-
+                //check if all the inputs are filled in
                 if (minMonstersT.getText().length() > 0 &&
                         maxMonstersT.getText().length() > 0 &&
                         numOfPlayersT.getText().length() > 0 &&
@@ -128,6 +119,8 @@ public class GUI extends JFrame {
                         minMonstersT.setText(tempMax);
                     }
 
+                    System.out.println("Building the encounter...");
+
                     EncounterBuilder encounterBuilder = new EncounterBuilder(new Encounter(
                             Integer.parseInt(numOfPlayersT.getText()),
                             Integer.parseInt(levelOfPlayersT.getText()),
@@ -138,29 +131,35 @@ public class GUI extends JFrame {
 
                     encounterBuilder.start();
 
-
                     try {
+
                         encounterBuilder.join();
 
                         Monster chosenMonster = encounterBuilder.getEncounter().getMonster();
-                        int numberOfMonsters = encounterBuilder.getEncounter().getNumberOfMonsters();
-                        float accuracy = encounterBuilder.getEncounter().getAccuracy();
 
-                        monsterGUI = new MonsterGUI(numberOfMonsters,
-                                                    chosenMonster.getName(),
-                                                    chosenMonster.getDescription(),
-                                                    chosenMonster.getGeneralInfo(),
-                                                    chosenMonster.getAttributes(),
-                                                    chosenMonster.getSavingThrows(),
-                                                    chosenMonster.getOtherInfo(),
-                                                    chosenMonster.getMonsterActions(),
-                                                    accuracy);
+                        if (chosenMonster != null) { //if the monster is found
+                            int numberOfMonsters = encounterBuilder.getEncounter().getNumberOfMonsters();
+                            float accuracy = encounterBuilder.getEncounter().getAccuracy();
 
+                            //display the information about the encounter in a jlabel, and information about the monster on a new interface
+                            prompt.setText(numberOfMonsters + "x " + chosenMonster.getName() + " (" + accuracy * 100 + "% accuracy)");
 
+                            new MonsterGUI(chosenMonster.getName(),
+                                    chosenMonster.getDescription(),
+                                    chosenMonster.getGeneralInfo(),
+                                    chosenMonster.getAttributes(),
+                                    chosenMonster.getSavingThrows(),
+                                    chosenMonster.getOtherInfo(),
+                                    chosenMonster.getMonsterActions());
+                        } else {
+                            prompt.setText("Monster not found.");
+                        }
 
                     } catch (InterruptedException | IOException ex) {
                         ex.printStackTrace();
                     }
+                } else {
+                    prompt.setText("Please fill in appropriate values.");
                 }
             }
         });

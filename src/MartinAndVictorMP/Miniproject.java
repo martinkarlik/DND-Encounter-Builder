@@ -9,14 +9,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Main {
+public class Miniproject {
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new GUI();
+                new InitGUI();
             }
-
-
         });
     }
 }
