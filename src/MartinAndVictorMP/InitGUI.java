@@ -151,6 +151,9 @@ public class InitGUI extends JFrame {
                                     chosenMonster.getSavingThrows(),
                                     chosenMonster.getOtherInfo(),
                                     chosenMonster.getMonsterActions());
+
+                            System.out.println("Encounter build.");
+
                         } else {
                             prompt.setText("Monster not found.");
                         }
