@@ -17,7 +17,7 @@ public class MonsterGUI extends JFrame {
 
     JLabel picLabel = new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png"));
 
-    /**
+    /*
      * @param numberOfMonsters
      * @param name
      * @param description
@@ -29,6 +29,7 @@ public class MonsterGUI extends JFrame {
      * @param accuracy
      * @throws IOException
      */
+
     public MonsterGUI(int numberOfMonsters, String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> savingThrows, ArrayList<String> otherInfo, ArrayList<String> monsterActions, float accuracy) throws IOException {
 
         JFrame frame = new JFrame("Monster encounter");
