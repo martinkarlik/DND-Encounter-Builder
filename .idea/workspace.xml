@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1be9b7b-6142-4a86-8482-175e751420d4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/MartinAndVictorMP/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MartinAndVictorMP/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +51,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/Monster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-268">
+            <state relative-caret-position="860">
               <caret line="96" column="63" selection-start-line="96" selection-start-column="63" selection-end-line="96" selection-end-column="63" />
               <folding>
                 <element signature="e#671#679#0" expanded="true" />
@@ -75,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="243">
+              <caret line="85" column="48" lean-forward="true" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -289,7 +288,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/Monster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-268">
+        <state relative-caret-position="860">
           <caret line="96" column="63" selection-start-line="96" selection-start-column="63" selection-end-line="96" selection-end-column="63" />
           <folding>
             <element signature="e#671#679#0" expanded="true" />
@@ -310,8 +309,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MartinAndVictorMP/MonsterGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="243">
+          <caret line="85" column="48" lean-forward="true" selection-start-line="85" selection-start-column="48" selection-end-line="85" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
