@@ -75,6 +75,9 @@ public class MonsterGUI extends JFrame {
                 savingThrowsL.setFont(fontSmall);
                 savingThrowsL.setForeground(Color.RED);
         }
+
+        panel.add(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png")));
+
         for (String e: otherInfo) {
                 panel.add(otherInfoL = new JLabel(e));
                 otherInfoL.setFont(fontSmall);
