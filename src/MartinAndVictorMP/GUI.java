@@ -38,32 +38,13 @@ public class GUI extends JFrame {
 
         monsterGUI = null;
 
-        /*numOfPlayersL.setPreferredSize(new Dimension(100, 30));
-        levelOfPlayersL.setPreferredSize(new Dimension(100, 30));
-        minMonstersL.setPreferredSize(new Dimension(100, 30));
-        maxMonstersL.setPreferredSize(new Dimension(100, 30));
-        difficultyL.setPreferredSize(new Dimension(100, 30));
-        minMonstersL.setPreferredSize(new Dimension(100, 30));
-
-        numOfPlayersT.setPreferredSize(new Dimension(100, 30));
-        levelOfPlayersT.setPreferredSize(new Dimension(100, 30));
-        minMonstersT.setPreferredSize(new Dimension(100, 30));
-        maxMonstersT.setPreferredSize(new Dimension(100, 30));
-        minMonstersT.setPreferredSize(new Dimension(100, 30));
-        chosenMonster.setPreferredSize(new Dimension(200, 50));
-        stats.setPreferredSize(new Dimension(200, 50));
-
-        buildEncounter.setPreferredSize(new Dimension(400, 100));*/
-
-        //setResizable(false);
-
         String[] difficulties = {"Easy", "Medium", "Hard", "Deadly"};
         JComboBox difficultyBox = new JComboBox(difficulties);
         difficultyBox.setSelectedIndex(1);
 
         setTitle("D&D Encounter Builder");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(new JLabel(new ImageIcon("/Images/Image.png")));
+        setContentPane(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Image.png")));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

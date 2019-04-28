@@ -70,27 +70,27 @@ public class Monster {
             //some attributes are optional for the monster and require checking whether the jsonObject has them
             if(jsonObject.has("strength")){
                 int strength = jsonObject.getInt("strength");
-                attributes[0] = "Strength: " + strength + "(" + getBonus(strength) + ")";
+                attributes[0] = "STR: " + strength + "(" + getBonus(strength) + ")";
             }
             if(jsonObject.has("dexterity")){
                 int dexterity = jsonObject.getInt("dexterity");
-                attributes[1] = "Dexterity: " + dexterity + "(" + getBonus(dexterity) + ")";
+                attributes[1] = "DEX: " + dexterity + "(" + getBonus(dexterity) + ")";
             }
             if(jsonObject.has("constitution")){
                 int constitution = jsonObject.getInt("constitution");
-                attributes[2] = "Dexterity: " + constitution + "(" + getBonus(constitution) + ")";
+                attributes[2] = "CON: " + constitution + "(" + getBonus(constitution) + ")";
             }
             if(jsonObject.has("intelligence")){
                 int intelligence = jsonObject.getInt("intelligence");
-                attributes[3] = "Intelligence: " + intelligence + "(" + getBonus(intelligence) + ")";
+                attributes[3] = "INT: " + intelligence + "(" + getBonus(intelligence) + ")";
             }
             if(jsonObject.has("wisdom")){
                 int wisdom = jsonObject.getInt("wisdom");
-                attributes[4] = "Wisdom: " + wisdom + "(" + getBonus(wisdom) + ")";
+                attributes[4] = "WIS: " + wisdom + "(" + getBonus(wisdom) + ")";
             }
             if(jsonObject.has("charisma")){
                 int charisma = jsonObject.getInt("charisma");
-                attributes[5] = "Charisma: " + charisma + "(" + getBonus(charisma) + ")";
+                attributes[5] = "CHA: " + charisma + "(" + getBonus(charisma) + ")";
             }
 
             if(jsonObject.has("strength_save")){

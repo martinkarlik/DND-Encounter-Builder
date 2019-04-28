@@ -15,6 +15,8 @@ public class MonsterGUI extends JFrame {
             WIS = new JLabel("WIS"),
             CHA = new JLabel("CHA");
 
+    JLabel picLabel = new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Split.png"));
+
     /**
      * @param numberOfMonsters
      * @param name
@@ -30,54 +32,49 @@ public class MonsterGUI extends JFrame {
     public MonsterGUI(int numberOfMonsters, String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> savingThrows, ArrayList<String> otherInfo, ArrayList<String> monsterActions, float accuracy) throws IOException {
 
         JFrame frame = new JFrame("Monster encounter");
-        setTitle("Monster Encounter");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        setContentPane(new JLabel(new ImageIcon("/Users/victorbuch/Documents/GitHub/TheOne/src/Images/Image.png")));
 
         JPanel panel = new JPanel();
         frame.getContentPane().add(panel);
 
-        //setContentPane(new JLabel(new ImageIcon("../Images/Image.png")));
-
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        panel.add(new JLabel(name)).setForeground(Color.RED);
+        panel.add(new JLabel(numberOfMonsters + " X " + name)).setForeground(Color.RED);
         panel.add(new JLabel(description));
-        panel.add(new JLabel(""));
+
+        panel.add(picLabel);
 
 
         for (int i = 0; i < generalInfo.length; i++) {
-            panel.add(new JLabel(generalInfo[i]));
+            panel.add(new JLabel(generalInfo[i])).setForeground(Color.RED);
         }
-        panel.add(new JLabel(""));
+
+        panel.add(picLabel);
 
         for (int i = 0; i < attributes.length; i++) {
             panel.add(new JLabel(attributes[i]));
         }
-        panel.add(new JLabel(""));
+
+        panel.add(picLabel);
 
         for (String e: savingThrows) {
-            panel.add(new JLabel(e));
+            panel.add(new JLabel("Saving throw " + e));
         }
-        panel.add(new JLabel(""));
+
+        panel.add(picLabel);
 
         for (String e: otherInfo) {
             panel.add(new JLabel(e));
         }
-        panel.add(new JLabel(""));
+
+        panel.add(picLabel);
 
         for (String e: monsterActions) {
             panel.add(new JLabel(e));
         }
-
-        //setSize(400,400);
-
         frame.pack();
         frame.setVisible(true);
-
-
-        setContentPane(new JLabel(new ImageIcon("../Images/Image.png")));
-        //setSize(399,399);
-        //setSize(400,400);
 
 
     }
