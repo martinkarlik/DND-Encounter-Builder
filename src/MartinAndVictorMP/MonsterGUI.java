@@ -19,11 +19,6 @@ public class MonsterGUI extends JFrame {
 
     public MonsterGUI(int numberOfMonsters, String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> otherInfo, ArrayList<String> savingThrows, ArrayList<String> monsterAction, float accuracy) throws IOException {
 
-    public MonsterGUI(/*String name, String description, String[] generalInfo, String[] attributes,
-                      ArrayList<String> otherInfo, ArrayList<String> savingThrows, ArrayList<String> monsterActions,
-                      float accuracy, int numberOfMonsters*/) throws IOException {
-
-        System.out.println("here");
         JFrame frame = new JFrame("Monster encounter");
 
         numberOfMonstersL.setText(Integer.toString(numberOfMonsters));
