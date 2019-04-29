@@ -42,7 +42,7 @@ public class InitGUI extends JFrame {
 
         setTitle("D&D Encounter Builder");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setContentPane(new JLabel(new ImageIcon("src/Images/image.png")));
+        setContentPane(new JLabel(new ImageIcon("src/Images/Image.png")));
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

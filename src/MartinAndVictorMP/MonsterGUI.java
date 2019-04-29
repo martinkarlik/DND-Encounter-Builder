@@ -2,7 +2,9 @@ package src.MartinAndVictorMP;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.ImageObserver;
 import java.io.IOException;
+import java.text.AttributedCharacterIterator;
 import java.util.ArrayList;
 
 public class MonsterGUI extends JFrame {
@@ -32,7 +34,8 @@ public class MonsterGUI extends JFrame {
         JFrame frame = new JFrame("Monster encounter");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new JPanel();
+        JPanelWithBackground panel = new JPanelWithBackground(new ImageIcon("src/Images/Image.png").getImage());
+
         frame.getContentPane().add(panel);
 
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));

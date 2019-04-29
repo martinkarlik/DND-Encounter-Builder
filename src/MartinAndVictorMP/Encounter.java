@@ -372,7 +372,7 @@ public class Encounter {
         */
 
         Monster tempMonster;
-        monster = null;
+        setMonster(null);
 
         for (int index = 0; index < shuffledOrder.length; index++) {
             tempMonster = new Monster(shuffledOrder[index]); //the next tempMonster will use the memory of current one
@@ -391,7 +391,4 @@ public class Encounter {
             }
         }
     }
-
-
-
 }
