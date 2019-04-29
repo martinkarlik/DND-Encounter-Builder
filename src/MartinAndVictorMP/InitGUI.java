@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 
 public class InitGUI extends JFrame {
     private JLabel numOfPlayersL = new JLabel("Number of players (1-30):");
@@ -142,7 +141,7 @@ public class InitGUI extends JFrame {
                             float accuracy = encounterBuilder.getEncounter().getAccuracy();
 
                             //display the information about the encounter in a jlabel, and information about the monster on a new interface
-                            prompt.setText(numberOfMonsters + "x " + chosenMonster.getName() + " (" + accuracy * 100 + "% accuracy)");
+                            prompt.setText(numberOfMonsters + "x " + chosenMonster.getName() + " (" + String.format ("%,.0f", accuracy*100) + "% accuracy)");
 
                             new MonsterGUI(chosenMonster.getName(),
                                     chosenMonster.getDescription(),

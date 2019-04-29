@@ -1,7 +1,6 @@
 package src.MartinAndVictorMP;
 
 import org.json.JSONException;
-
 import java.io.IOException;
 
 public class EncounterBuilder extends Thread {

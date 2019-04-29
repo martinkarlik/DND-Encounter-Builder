@@ -2,9 +2,7 @@ package src.MartinAndVictorMP;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.ImageObserver;
 import java.io.IOException;
-import java.text.AttributedCharacterIterator;
 import java.util.ArrayList;
 
 public class MonsterGUI extends JFrame {
@@ -12,19 +10,6 @@ public class MonsterGUI extends JFrame {
     private Font font = new Font("Arial", Font.BOLD, 26);
     private Font fontMedium = new Font("Arial", Font.ITALIC, 20);
     private Font fontSmall = new Font("Arial", Font.PLAIN, 16);
-
-    /*
-     * @param numberOfMonsters
-     * @param name
-     * @param description
-     * @param generalInfo
-     * @param attributes
-     * @param savingThrows
-     * @param otherInfo
-     * @param monsterActions
-     * @param accuracy
-     * @throws IOException
-     */
 
     public MonsterGUI(String name, String description, String[] generalInfo, String[] attributes, ArrayList<String> savingThrows, ArrayList<String> otherInfo, ArrayList<String> monsterActions) throws IOException {
 

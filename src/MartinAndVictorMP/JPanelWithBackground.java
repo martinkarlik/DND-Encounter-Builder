@@ -1,6 +1,5 @@
 package src.MartinAndVictorMP;
 
-
 import javax.swing.*;
 import java.awt.*;
 
